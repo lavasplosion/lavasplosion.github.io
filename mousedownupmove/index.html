@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  div {
+    width: 200px;
+    height: 100px;
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+
+<button id="mouseDown" onmousedown="mouseDown()" onmouseup="mouseUp()">Use the mouse button here</button>
+
+<br>
+<br>
+
+<div onmousemove="mouseMove(event)"></div>
+
+<p id="mouseMove">mouse coordinates</p>
+
+<script>
+function mouseDown() {
+  document.getElementById("mouseDown").innerHTML = "The mouse button is held down.";
+  console.log('mouse down');
+}
+
+function mouseUp() {
+  document.getElementById("mouseDown").innerHTML = "You released the mouse button.";
+  console.log('mouse up');
+}
+
+function mouseMove(event) {
+  console.log('mouse move');
+  var x = event.clientX;
+  var y = event.clientY;
+  var coor = "Coordinates: (" + x + "," + y + ")";
+  document.getElementById("mouseMove").innerHTML = coor;
+}
+</script>
+
+</body>
+</html>
