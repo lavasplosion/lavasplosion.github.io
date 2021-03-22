@@ -1,6 +1,16 @@
 ========== TO DO ==========
+Click Me
+Touch Me
+Click | Touch Me
+Draw Me
+Drag Me
+In My Box
+WolfPuncher 2
+
+
 ??overflow: hidden;??
 ?? e.preventDefault()??
+? ev.stopPropagation();
 touchmove has x, y from clientX/y
 
 * touch start: 
