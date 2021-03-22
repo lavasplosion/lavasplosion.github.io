@@ -40,7 +40,7 @@ let touchEnded = 0;
 
 document.getElementById("touchMe").addEventListener("touchstart", touchStart);
 function touchStart(event) {
-  touchStarted = touchStarted = 1;
+  touchStarted = touchStarted + 1;
   console.log('Touch start: ' + touchStarted);
   var x = event.touches[0].clientX;
   var y = event.touches[0].clientY;
