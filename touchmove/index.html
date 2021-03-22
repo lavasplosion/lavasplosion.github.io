@@ -31,6 +31,7 @@ let i = 0;
 function touchMove(event) {
   console.log("touch moving");
   i = i + 1;
+  // event.touches[0] works!
   var x = event.touches[0].clientX;
   var y = event.touches[0].clientY;
   document.getElementById("xyTouchMove").innerHTML = x + ", " + y;
