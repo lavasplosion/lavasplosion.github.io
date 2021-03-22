@@ -34,35 +34,35 @@ div {
 
 <script>
 console.log("this ran");
-let touchStart = 0;
-let touchMove = 0;
-let touchEnd = 0;
+let touchStarted = 0;
+let touchMoved = 0;
+let touchEnded = 0;
 
 document.getElementById("touchMe").addEventListener("ontouchstart", touchStart);
 function touchStart(event) {
-  touchStart = touchStart = 1;
-  console.log('Touch start: ' + touchStart);
+  touchStarted = touchStarted = 1;
+  console.log('Touch start: ' + touchStarted);
   var x = event.touches[0].clientX;
   var y = event.touches[0].clientY;
   document.getElementById('startXY').innerHTML = "Touch start position: " + x + ", " + y;
-  document.getElementById('numTouchStart').innerHTML = "Touches started: " + touchStart;
+  document.getElementById('numTouchStart').innerHTML = "Touches started: " + touchStarted;
 };
 
 document.getElementById("touchMe").addEventListener("ontouchmove", touchMove);
 function touchMove(event) {
-  touchMove = touchMove + 1;
-  console.log('Touch move: ' + touchMove);
+  touchMoved = touchMoved + 1;
+  console.log('Touch move: ' + touchMoved);
   var x = event.touches[0].clientX;
   var y = event.touches[0].clientY;
   document.getElementById('movingXY').innerHTML = "Moving position: " + x + ", " + y;
-  document.getElementById('numTouchMove').innerHTML = "Moves: " + touchMove;
+  document.getElementById('numTouchMove').innerHTML = "Moves: " + touchMoved;
 };
 
 document.getElementById("touchMe").addEventListener("ontouchend", touchEnd);
 function touchEnd(event) {
-  touchEnd = touchEnd + 1;
-  console.log('Touch end: ' + touchEnd);
-  document.getElementById('numTouchEnd').innerHTML = "Touches ended: " + touchEnd;
+  touchEnded = touchEnded + 1;
+  console.log('Touch end: ' + touchEnded);
+  document.getElementById('numTouchEnd').innerHTML = "Touches ended: " + touchEnded;
 };
 
 
