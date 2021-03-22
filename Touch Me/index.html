@@ -38,7 +38,7 @@ let touchStart = 0;
 let touchMove = 0;
 let touchEnd = 0;
 
-document.getElementById("touchMe").addEventListener("ontouchstart", touchStart;
+document.getElementById("touchMe").addEventListener("ontouchstart", touchStart);
 function touchStart(event) {
   touchStart = touchStart = 1;
   console.log('Touch start: ' + touchStart);
@@ -48,7 +48,7 @@ function touchStart(event) {
   document.getElementById('numTouchStart').innerHTML = "Touches started: " + touchStart;
 };
 
-document.getElementById("touchMe").addEventListener("ontouchmove", touchMove;
+document.getElementById("touchMe").addEventListener("ontouchmove", touchMove);
 function touchMove(event) {
   touchMove = touchMove + 1;
   console.log('Touch move: ' + touchMove);
