@@ -31,8 +31,8 @@ let i = 0;
 function touchStart(event) {
   console.log(i);
   i = i + 1;
-  var x = event.touches[0].clientX;
-  var y = event.touches[0].clientY;
+  var x = event.clientX;
+  var y = event.clientY;
   document.getElementById("touchCounter").innerHTML = "Touch Counter: " + i;
   document.getElementById("posStartTouch").innerHTML = "Touch start coords: " + x + ", " + y;
 }
