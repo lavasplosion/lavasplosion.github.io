@@ -13,7 +13,7 @@ touchmove has x, y from clientX/y
 * how to disabled double tap zooming in?
 * ontouchmove vs touchmove?
 * event.touches[0].clientX; vs event.clientY;?
-event.touches[0].clientX;
+event.touches[0].clientX; VS changedTouches[0].screenX
 
 * var x = event.touches.length;
 * touch and mouse
