@@ -18,26 +18,23 @@ div {
 </style>
 </head>
 <body>
-
-<h1>DOM touchmove Event</h1>
-
-<p ontouchmove="myFunction(event)">Touch this paragraph, and move the finger to trigger a function that will display the x and y coordinates of the touch, according the the document:</p>
-
+<h1>TOUCHMOVE</h1>
 <p><strong>Note:</strong> This example is for touch devices only.</p>
 
-<p id="demo">x and y of moving touch</p>
+<p>Touch my box</p>
 
-<div id="box"></div>
-<p id="countTouches"></p>
+<div ontouchmove="touchMove(event)" id="box"></div>
+<p id="xyTouchMove">x and y of moving touch</p>
+<p id="countTouches">count touches</p>
 
 <script>
 let i = 0;
-function myFunction(event) {
+function touchMove(event) {
   console.log("touch moving");
   i = i + 1;
   var x = event.touches[0].clientX;
   var y = event.touches[0].clientY;
-  document.getElementById("demo").innerHTML = x + ", " + y;
+  document.getElementById("xyTouchMove").innerHTML = x + ", " + y;
   document.getElementById("countTouches").innerHTML = "Touches counted: " + i;
 }
 </script>

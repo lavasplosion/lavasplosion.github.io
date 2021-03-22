@@ -18,24 +18,19 @@ div {
 </style>
 <head>
 <body>
-
-<h1>DOM touchstart Event</h1>
-
-<p ontouchstart="myFunction()">Touch this paragraph to trigger a function that will write "Hello World".</p>
-
+<h1>TOUCHSTART</h1>
 <p><strong>Note:</strong> This example is for touch devices only.</p>
 
-<p id="countTouches">touch started!</p>
+<p>Touch my box</p>
+<div ontouchstart="touchStart()" id="box"></div>
 
-<div id="box"></div>
-<p id="touchCounter"></p>
+<p id="touchCounter">count touches</p>
 
 <script>
 let i = 0;
-function myFunction() {
+function touchStart() {
   console.log(i);
   i = i + 1;
-  document.getElementById("countTouches").innerHTML = "touches started";
   document.getElementById("touchCounter").innerHTML = "Touch Counter: " + i;
 }
 </script>
