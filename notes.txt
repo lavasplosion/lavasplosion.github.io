@@ -1,4 +1,6 @@
 ========== TO DO ==========
+??overflow: hidden;??
+?? e.preventDefault()??
 touchmove has x, y from clientX/y
 
 * touch start: 
