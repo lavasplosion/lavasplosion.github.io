@@ -28,7 +28,7 @@ div {
 <p id="posStartTouch"></p>
 <script>
 let i = 0;
-function touchStart() {
+function touchStart(event) {
   console.log(i);
   i = i + 1;
   var x = event.touches[0].clientX;

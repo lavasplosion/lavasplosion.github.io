@@ -28,7 +28,7 @@ div {
 
 <script>
 let i = 0;
-function touchEnd() {
+function touchEnd(event) {
   console.log(i);
   i = i + 1;
   var x = event.touches[0].clientX;

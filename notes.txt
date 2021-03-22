@@ -12,7 +12,7 @@ touchmove has x, y from clientX/y
 --------------
 * how to disabled double tap zooming in?
 * ontouchmove vs touchmove?
-* 
+* event.touches[0].clientX; vs event.clientY;?
 
 
 
