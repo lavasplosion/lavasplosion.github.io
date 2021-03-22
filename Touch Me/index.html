@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html, body {
+  overscroll-behavior: none;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+div {
+  width: 75%;
+  height: 75%;
+  border: 1px solid black;
+  margin: auto;
+}
+</style>
+<head>
+<body>
+<h1>Touch Me</h1>
+<p><strong>Note:</strong> This example is for touch devices only.</p>
+<div ontouchstart="touchStart(event)" ontouchmove="touchMove(event)" ontouchend="touchEnd(event)" id="touchMe"></div>
+
+<p id="startXY">touch start pos</p>
+<p id="movingXY">moving position</p>
+
+
+<p id="numTouchStart">num touches started</p>
+<p id="numTouchMove">num moves</p>
+<p id="numTouchEnd">num touches ended</p>
+<p></p>
+<p></p>
+
+<script>
+let touchStart = 0;
+let touchMove = 0;
+let touchEnd = 0;
+
+function touchStart(event) {
+  touchStart = touchStart = 1;
+  console.log('Touch start: ' + touchStart);
+  var x = event.touches[0].clientX;
+  var y = event.touches[0].clientY;
+  document.getElementById('startXY').innerHTML = "Touch start position: " + x + ", " + y;
+  document.getElementById('numTouchStart').innerHTML = "Touches started: " + touchStart;
+}
+function touchMove(event) {
+  touchMove = touchMove + 1;
+  console.log('Touch move: ' + touchMove);
+  var x = event.touches[0].clientX;
+  var y = event.touches[0].clientY;
+  document.getElementById('movingXY').innerHTML = "Moving position: " + x + ", " + y;
+  document.getElementById('numTouchMove').innerHTML = "Moves: " + touchMove;
+}
+function touchEnd(event) {
+  touchEnd = touchEnd + 1;
+  console.log('Touch end: ' + touchEnd);
+  document.getElementById('numTouchEnd').innerHTML = "Touches ended: " + touchEnd;
+
+}
+</script>
+
+</body>
+</html>

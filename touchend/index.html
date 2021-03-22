@@ -31,8 +31,11 @@ let i = 0;
 function touchEnd(event) {
   console.log(i);
   i = i + 1;
-  var x = event.touches[0].clientX;
-  var y = event.touches[0].clientY;
+  // apparently touch end doesn't include Coordinates
+  // need to store those from touch start or touch move!
+  // https://stackoverflow.com/questions/17957593/how-to-capture-touchend-coordinates
+  // var x = event.touches[0].clientX;
+  // var y = event.touches[0].clientY;
   document.getElementById("countTouches").innerHTML = "Touches counted: " + i;
   document.getElementById("posEndTouch").innerHTML = "touchend coords: " + x + ", " + y;
 }

@@ -22,16 +22,18 @@ event.touches[0].clientX; VS changedTouches[0].screenX
 
 preventDefault()
 
-touchstart
-touchmove
-touchend
-touchcancel
+* touchstart
+* touchmove
+* touchend
+		* -touchcancel
 
-mousedown	down click
-mousemove	mouse moving over element
-mouseleave	mouse leaves element
-mouseout	mouse on something w/i element OR leaves element
-mouseup		up click
+* mousedown	down click
+* mousemove	mouse moving over element
+* mouseup	up click
+
+		* -mouseleave	mouse leaves element
+		* -mouseout	mouse on something w/i element OR leaves element
+
 
 onclick
 ondblclick
