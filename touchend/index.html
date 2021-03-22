@@ -31,8 +31,8 @@ let i = 0;
 function touchEnd(event) {
   console.log(i);
   i = i + 1;
-  var x = event.clientX;
-  var y = event.clientY;
+  var x = event.changedTouches[0].clientX;
+  var y = event.changedTouches[0].clientY;
   document.getElementById("countTouches").innerHTML = "Touches counted: " + i;
   document.getElementById("posEndTouch").innerHTML = "touchend coords: " + x + ", " + y;
 }
