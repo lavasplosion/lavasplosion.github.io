@@ -33,12 +33,12 @@ div {
 <p></p>
 
 <script>
-console.log("this ran");
+console.log("start of script");
 let touchStarted = 0;
 let touchMoved = 0;
 let touchEnded = 0;
 
-document.getElementById("touchMe").addEventListener("ontouchstart", touchStart);
+document.getElementById("touchMe").addEventListener("touchstart", touchStart);
 function touchStart(event) {
   touchStarted = touchStarted = 1;
   console.log('Touch start: ' + touchStarted);
@@ -48,7 +48,7 @@ function touchStart(event) {
   document.getElementById('numTouchStart').innerHTML = "Touches started: " + touchStarted;
 };
 
-document.getElementById("touchMe").addEventListener("ontouchmove", touchMove);
+document.getElementById("touchMe").addEventListener("touchmove", touchMove);
 function touchMove(event) {
   touchMoved = touchMoved + 1;
   console.log('Touch move: ' + touchMoved);
@@ -58,14 +58,14 @@ function touchMove(event) {
   document.getElementById('numTouchMove').innerHTML = "Moves: " + touchMoved;
 };
 
-document.getElementById("touchMe").addEventListener("ontouchend", touchEnd);
+document.getElementById("touchMe").addEventListener("touchend", touchEnd);
 function touchEnd(event) {
   touchEnded = touchEnded + 1;
   console.log('Touch end: ' + touchEnded);
   document.getElementById('numTouchEnd').innerHTML = "Touches ended: " + touchEnded;
 };
 
-
+console.log("end of script")
 /*
 function touchStart(event) {
   touchStart = touchStart = 1;
