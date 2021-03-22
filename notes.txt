@@ -1,13 +1,21 @@
 ========== TO DO ==========
+touchmove has x, y from clientX/y
 
+* touch start: 
 * touch end: add div and get end x, y
-* touch move: get current x,y
-* touch start: get curreent x, y
+* touch move:
+
 * touch cancel: add image to touch cancel for dragging
 	* +/- prevent default
 	* css touch? what's it called?
 
 --------------
+* how to disabled double tap zooming in?
+* ontouchmove vs touchmove?
+* 
+
+
+
 * touch and mouse
 	* how to have both work?
 

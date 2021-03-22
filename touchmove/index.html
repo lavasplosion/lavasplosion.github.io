@@ -22,10 +22,9 @@ div {
 <p><strong>Note:</strong> This example is for touch devices only.</p>
 
 <p>Touch my box</p>
-
 <div ontouchmove="touchMove(event)" id="box"></div>
 <p id="xyTouchMove">x and y of moving touch</p>
-<p id="countTouches">count touches</p>
+<p id="countMoves">count touches</p>
 
 <script>
 let i = 0;
@@ -35,7 +34,7 @@ function touchMove(event) {
   var x = event.touches[0].clientX;
   var y = event.touches[0].clientY;
   document.getElementById("xyTouchMove").innerHTML = x + ", " + y;
-  document.getElementById("countTouches").innerHTML = "Touches counted: " + i;
+  document.getElementById("countMoves").innerHTML = "touchmove counted: " + i;
 }
 </script>
 

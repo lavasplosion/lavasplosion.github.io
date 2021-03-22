@@ -20,20 +20,21 @@ div {
 <body>
 
 <h1>TOUCHEND</h1>
-
-<p ontouchend="myFunction()">Touch this paragraph, then release the touch to trigger a function that will write "Hello World".</p>
-
 <p><strong>Note:</strong> This example is for touch devices only.</p>
 
 <div ontouchend="touchEnd()" id="box"></div>
 <p id="countTouches">count touches</p>
+<p id="posEndTouch">pos end touch</p>
 
 <script>
 let i = 0;
 function touchEnd() {
   console.log(i);
   i = i + 1;
+  var x = event.touches[0].clientX;
+  var y = event.touches[0].clientY;
   document.getElementById("countTouches").innerHTML = "Touches counted: " + i;
+  document.getElementById("posEndTouch").innerHTML = "touchend coords: " + x + ", " + y;
 }
 </script>
 
