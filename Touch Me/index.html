@@ -37,7 +37,7 @@ let touchStart = 0;
 let touchMove = 0;
 let touchEnd = 0;
 
-document.addEventListener("ontouchstart", function touchStart(event) {
+document.getElementById("touchMe").addEventListener("ontouchstart", function touchStart(event) {
   touchStart = touchStart = 1;
   console.log('Touch start: ' + touchStart);
   var x = event.touches[0].clientX;
@@ -45,7 +45,7 @@ document.addEventListener("ontouchstart", function touchStart(event) {
   document.getElementById('startXY').innerHTML = "Touch start position: " + x + ", " + y;
   document.getElementById('numTouchStart').innerHTML = "Touches started: " + touchStart;
 });
-document.addEventListener("ontouchmove", function touchMove(event) {
+document.getElementById("touchMe").addEventListener("ontouchmove", function touchMove(event) {
   touchMove = touchMove + 1;
   console.log('Touch move: ' + touchMove);
   var x = event.touches[0].clientX;
@@ -53,7 +53,7 @@ document.addEventListener("ontouchmove", function touchMove(event) {
   document.getElementById('movingXY').innerHTML = "Moving position: " + x + ", " + y;
   document.getElementById('numTouchMove').innerHTML = "Moves: " + touchMove;
 });
-document.addEventListener("ontouchend", function touchEnd(event) {
+document.getElementById("touchMe").addEventListener("ontouchend", function touchEnd(event) {
   touchEnd = touchEnd + 1;
   console.log('Touch end: ' + touchEnd);
   document.getElementById('numTouchEnd').innerHTML = "Touches ended: " + touchEnd;
