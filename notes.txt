@@ -1,3 +1,16 @@
+========== TO DO ==========
+
+* touch end: add div and get end x, y
+* touch move: get current x,y
+* touch start: get curreent x, y
+* touch cancel: add image to touch cancel for dragging
+	* +/- prevent default
+	* css touch? what's it called?
+
+--------------
+* touch and mouse
+	* how to have both work?
+
 preventDefault()
 
 touchstart
@@ -5,15 +18,27 @@ touchmove
 touchend
 touchcancel
 
-mousedown
-mousemove
-mouseleave
-mouseout
-mouseup
+mousedown	down click
+mousemove	mouse moving over element
+mouseleave	mouse leaves element
+mouseout	mouse on something w/i element OR leaves element
+mouseup		up click
 
 onclick
 ondblclick
 
+clientX
+clientY
+movementX
+movementY
+offsetX
+offsetY
+pageX
+pageY
+screenX
+screenY
+
+* if ('ontouchstart' in window) {
 * double touch https://developer.mozilla.org/en-US/docs/Web/API/Touch_events/Using_Touch_Events
 // touchstart handler
 function process_touchstart(ev) {

@@ -1,5 +1,22 @@
 <!DOCTYPE html>
 <html>
+<head>
+<style>
+html, body {
+  overscroll-behavior: none;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+div {
+  width: 75%;
+  height: 75%;
+  border: 1px solid black;
+  margin: auto;
+}
+</style>
+</head>
 <body>
 
 <h1>DOM touchmove Event</h1>
@@ -8,13 +25,20 @@
 
 <p><strong>Note:</strong> This example is for touch devices only.</p>
 
-<p id="demo"></p>
+<p id="demo">x and y of moving touch</p>
+
+<div id="box"></div>
+<p id="countTouches"></p>
 
 <script>
+let i = 0;
 function myFunction(event) {
+  console.log("touch moving");
+  i = i + 1;
   var x = event.touches[0].clientX;
   var y = event.touches[0].clientY;
   document.getElementById("demo").innerHTML = x + ", " + y;
+  document.getElementById("countTouches").innerHTML = "Touches counted: " + i;
 }
 </script>
 

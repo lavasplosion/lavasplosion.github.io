@@ -1,5 +1,22 @@
 <!DOCTYPE html>
 <html>
+<head>
+<style>
+html, body {
+  overscroll-behavior: none;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+div {
+  width: 75%;
+  height: 75%;
+  border: 1px solid black;
+  margin: auto;
+}
+</style>
+</head>
 <body>
 
 <h1>DOM touchcancel Event</h1>
@@ -8,11 +25,16 @@
 
 <p><strong>Note:</strong> This example is for touch devices only.</p>
 
-<p id="demo"></p>
+<p id="touchCanceled">touch canceled</p>
+
+<img src="/images/minecraft_lavaflow.gif"/>
 
 <script>
+let i = 0;
 function myFunction() {
-  document.getElementById("demo").innerHTML = "Touch Cancelled";
+  console.log(i);
+  i = i + 1;
+  document.getElementById("touchCanceled").innerHTML = "Touch Cancelled: " + i;
 }
 </script>
 
