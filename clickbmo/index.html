@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Click BMO</h1>
+  <p><strong>Note:</strong> This example is for mouse devices only</p>
+  <div class="responsivecontainer">
+    <img src="./images/windowsxpbackground.jpg" id="xpbackground">
+    <img src="./images/bmo.png" id="bmo">
+    <p id="textmessage">BMO's position and scale changes w/ background.</p>
+  </div>
+  <!--
+mousedown
+mousemove
+mouseup
+x, y positions (event.clientX, event.clientY)
+
+clientX & clientY are x, y position of mouse relative to upper-left visible part of the page
+movementX & movementY return the change in x, y position (current-previous.screenX)
+offsetX & offsetY return distance between event and parent's padding edge
+pageX & pageY Relative to the top left of the fully rendered content area in the browser.
+screenX & screenY are x, y mouse relative to upper left most monitor for multi-monitor
+pageX & pageY coordinates are relative to top left of the entire document
+offsetWidth, offsetHeight returns the layout width, height of an element
+clientHeight, clientWidth returns inner height, width of an element in pixels
+Element.getBoundingClientRect() returns left, top, right, bottom, x, y, width, and height
+  -->
+  <p id="mouseDownNum"># mousedown events</p>
+  <p id="mouseMoveNum"># mousemove events</p>
+  <p id="mouseUpNum"># mouseup events</p>
+  <p id="mouseLeaveNum"># mouseleave events</p>
+  <p id="mouseOverNum"># mouseover events</p>
+  <!-- -->
+  <p id="mousedownXY">x, y of mousedown event</p>
+  <p id="mousemoveXY">moving mouse x, y position</p>
+  <p id="mouseupXY">x, y of mouseup event</p>
+
+  <p id="mouseoverXY"></p>
+  <p id="mouseleaveXY"></p>
+  <p></p>
+<script>
+console.log("script start");
+let mouseDownEvents = 0;
+let mouseMoveEvents = 0;
+let mouseUpEvents = 0;
+let mouseLeaveEvents = 0;
+let mouseOverEvents = 0;
+
+document.getElementById("bmo").addEventListener("mousedown", mouseDown);
+function mouseDown(event) {
+  mouseDownEvents = mouseDownEvents + 1;
+  let mouseDownEventText = "mouse down event #: " + mouseDownEvents;
+  console.log(mouseDownEventText);
+  // var x = event.clientX;
+  // var y = event.clientY;
+  let clientX = getClientXY(event)[0];
+  let clientY = getClientXY(event)[1];
+  // x = clientXYValues[0];
+  // y = clientXYValues[1];
+  let mouseDownXYText = "Last mouse down x, y: " + clientX + ", " + clientY;
+  document.getElementById("mouseDownNum").innerHTML = mouseDownEventText;
+  document.getElementById("mousedownXY").innerHTML = mouseDownXYText;
+}
+
+document.getElementById("bmo").addEventListener("mousemove", mouseMove);
+function mouseMove(event) {
+  mouseMoveEvents = mouseMoveEvents + 1;
+  let mouseMoveEventText = "mouse move event #: " + mouseMoveEvents;
+  console.log(mouseMoveEventText);
+  let clientX = getClientXY(event)[0];
+  let clientY = getClientXY(event)[1];
+  let mouseMoveXYText = "Last mouse move x, y: " + clientX + ", " + clientY;
+  document.getElementById("mouseMoveNum").innerHTML = mouseMoveEventText;
+  document.getElementById("mousemoveXY").innerHTML = mouseMoveXYText;
+}
+
+document.getElementById("bmo").addEventListener("mouseup", mouseUp);
+function mouseUp(event) {
+  mouseUpEvents = mouseUpEvents + 1;
+  let MouseUpEventText = "mouse up event #: " + mouseUpEvents;
+  console.log(MouseUpEventText);
+  let clientX = getClientXY(event)[0];
+  let clientY = getClientXY(event)[1];
+  let mouseUpEventXYText = "Last mouse up x, y: " + clientX + ", " + clientY;
+  document.getElementById("mouseUpNum").innerHTML = MouseUpEventText;
+  document.getElementById("mouseupXY").innerHTML = mouseUpEventXYText;
+}
+
+document.getElementById("bmo").addEventListener("mouseover", mouseOver);
+function mouseOver(event) {
+  mouseOverEvents = mouseOverEvents + 1;
+  let mouseOverEventText = "mouse over event #: " + mouseOverEvents;
+  console.log(mouseOverEventText);
+  let clientX = getClientXY(event)[0];
+  let clientY = getClientXY(event)[1];
+  let mouseOverEventXYText = "Last mouseover x, y: " + clientX + ", " + clientY;
+  document.getElementById("mouseOverNum").innerHTML = mouseOverEventText;
+  document.getElementById("mouseoverXY").innerHTML = mouseOverEventXYText;
+}
+
+document.getElementById("bmo").addEventListener("mouseleave", mouseLeave);
+function mouseLeave(event) {
+  mouseLeaveEvents = mouseLeaveEvents + 1;
+  let mouseLeaveEventText = "mouse leave event #: " + mouseLeaveEvents;
+  console.log(mouseLeaveEventText);
+  let clientX = getClientXY(event)[0];
+  let clientY = getClientXY(event)[1];
+  let mouseLeaveEventXYText = "Last mouseleave event x, y: " + clientX + ", " + clientY;
+  document.getElementById("mouseLeaveNum").innerHTML = mouseLeaveEventXYText;
+}
+
+function getClientXY(event) {
+  var x = event.clientX;
+  var y = event.clientY;
+  return [x, y];
+}
+console.log("script ending");
+</script>
+<!-- <script type="module" src="index.js"></script> -->
+</body>
+</html>

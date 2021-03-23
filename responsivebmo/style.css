@@ -1,0 +1,33 @@
+/* Responsive image idea from Paul Grau on https://codepen.io/graup/pen/EPjNwr */
+  body, html {
+    margin: 0;
+  }
+  .responsivecontainer {
+    border: 10px solid #000;
+    position: relative;
+  }
+  .responsivecontainer img {
+    display: block;
+  }
+  .responsivecontainer #xpbackground {
+    width: 100%;
+    height: auto;
+  }
+
+  .responsivecontainer #bmo {
+    position: absolute;
+    top: 25%;
+    left: 30%;
+    width: 20%;
+    height: auto;
+    transform: scaleX(-1);
+  }
+
+  .responsivecontainer #textmessage {
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 2vh;
+  }
