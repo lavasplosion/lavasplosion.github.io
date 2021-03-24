@@ -11,7 +11,9 @@
   <div class="responsivecontainer">
     <img src="./images/windowsxpbackground.jpg" id="xpbackground">
     <img src="./images/bmo.png" id="bmo">
+    <!-- I will save this for the touch demo I'll make next
     <img src="./images/creeper.png" id="creeper">
+    -->
     <p id="textmessage">BMO's position and scale changes w/ background.</p>
   </div>
   <!--
@@ -25,15 +27,20 @@ clientX & clientY are x, y position of mouse relative to upper-left visible part
       <p id="mouseDownNum"># mousedown events</p>
       <p id="mouseMoveNum"># mousemove events</p>
       <p id="mouseUpNum"># mouseup events</p>
-      <p id="mouseLeaveNum"># mouseleave events</p>
-      <p id="mouseOverNum"># mouseover events</p>
       <p id="mousemoveXY">moving mouse x, y position</p>
+      <!--
+      <p id="mouseLeaveNum"># mouseleave events</p>
+       this is too much data. I don't need to know mouseover/mouse leave
+      <p id="mouseOverNum"># mouseover events</p>
 
+      -->
+      <!-- this is too much info. getting rid of all x, y pos except for clientx
       <p id="mousedownXY">x, y of mousedown event</p>
       <p id="mouseupXY">x, y of mouseup event</p>
 
       <p id="mouseoverXY">x, y of mouseover event</p>
       <p id="mouseleaveXY">x, y of mouseleave event</p>
+      -->
       <!--
       -->
     </div>
@@ -86,44 +93,50 @@ function getAllPositions(event) {
   var clientWidthVal = document.getElementById("bmo").clientHeight;
   // console.log(clientHeightVal + " " + clientWidthVal)
   var boundingClientRect = document.getElementById("bmo").getBoundingClientRect();
-  console.log('start');
-  console.log(boundingClientRect.left);
-  console.log(boundingClientRect.top);
-  console.log(boundingClientRect.right);
-  console.log(boundingClientRect.bottom);
-  console.log(boundingClientRect.x);
-  console.log(boundingClientRect.y);
-  console.log(boundingClientRect.width);
-  console.log(boundingClientRect.height);
-  console.log('stop');
+  // console.log('start');
+  // console.log(boundingClientRect.left);
+  // console.log(boundingClientRect.top);
+  // console.log(boundingClientRect.bottom);
+  // console.log(boundingClientRect.right);
+  // console.log(boundingClientRect.x);
+  // console.log(boundingClientRect.width);
+  // console.log(boundingClientRect.y);
+  // console.log('stop');
+  // console.log(boundingClientRect.height);
+}
+let xyMoveCoors = document.querySelector("mousesmoveXY");
+document.addEventListener('mousemove', loglocation);
+function loglocation(e) {
+  console.log('hello?!?');
+  xyMoveCoors.innerText = `
+    Client X/Y: ${e.clientX}, ${e.clientY}
+    Screen X/Y: ${e.screenX}, ${e.screenY}
+    Movement X/Y: ${e.movementX}, ${e.movementY}
+    Offset X/Y: ${e.offsetX}, ${e.offsetY}
+    Page X/y: ${e.pageX}, ${e.pageY}`;
+    document.getElementById("mousemoveXY").innerHTML = xyMoveCoors[1];
 }
 
 
-
-
-
-
-
-
-
-
-
+/*
 function getClientXY(event) {
   var x = event.clientX;
   var y = event.clientY;
   return [x, y];
 }
-
+*/
 document.getElementById("bmo").addEventListener("mousemove", mouseMove);
 function mouseMove(event) {
   mouseMoveEvents = mouseMoveEvents + 1;
   let mouseMoveEventText = "mouse move event #: " + mouseMoveEvents;
   // console.log(mouseMoveEventText);
-  let clientX = getClientXY(event)[0];
-  let clientY = getClientXY(event)[1];
-  let mouseMoveXYText = "Last mouse move x, y: " + clientX + ", " + clientY;
+  // let clientX = getClientXY(event)[0];
+  // let clientY = getClientXY(event)[1];
+  // mouseMoveXYText = xyPosition(event);
+  // let mouseMoveXYText = "Last mouse move x, y: " + clientX + ", " + clientY;
+  // let mouseMoveXYText = loglocation(event);
   document.getElementById("mouseMoveNum").innerHTML = mouseMoveEventText;
-  document.getElementById("mousemoveXY").innerHTML = mouseMoveXYText;
+  // document.getElementById("mousemoveXY").innerHTML = mouseMoveXYText;
 }
 
 
@@ -140,13 +153,13 @@ function mouseDown(event) {
   // console.log(mouseDownEventText);
   // var x = event.clientX;
   // var y = event.clientY;
-  let clientX = getClientXY(event)[0];
-  let clientY = getClientXY(event)[1];
+  // let clientX = getClientXY(event)[0];
+  // let clientY = getClientXY(event)[1];
   // x = clientXYValues[0];
   // y = clientXYValues[1];
-  let mouseDownXYText = "Last mouse down x, y: " + clientX + ", " + clientY;
+  // let mouseDownXYText = "Last mouse down x, y: " + clientX + ", " + clientY;
   document.getElementById("mouseDownNum").innerHTML = mouseDownEventText;
-  document.getElementById("mousedownXY").innerHTML = mouseDownXYText;
+  // document.getElementById("mousedownXY").innerHTML = mouseDownXYText;
 }
 
 
@@ -156,13 +169,13 @@ function mouseUp(event) {
   mouseUpEvents = mouseUpEvents + 1;
   let MouseUpEventText = "mouse up event #: " + mouseUpEvents;
   // console.log(MouseUpEventText);
-  let clientX = getClientXY(event)[0];
-  let clientY = getClientXY(event)[1];
-  let mouseUpEventXYText = "Last mouse up x, y: " + clientX + ", " + clientY;
+  // let clientX = getClientXY(event)[0];
+  // let clientY = getClientXY(event)[1];
+  // let mouseUpEventXYText = "Last mouse up x, y: " + clientX + ", " + clientY;
   document.getElementById("mouseUpNum").innerHTML = MouseUpEventText;
-  document.getElementById("mouseupXY").innerHTML = mouseUpEventXYText;
+  // document.getElementById("mouseupXY").innerHTML = mouseUpEventXYText;
 }
-
+/* this is too much data. I don't carre about mouseover/mouseleave
 document.getElementById("bmo").addEventListener("mouseover", mouseOver);
 function mouseOver(event) {
   mouseOverEvents = mouseOverEvents + 1;
@@ -171,8 +184,8 @@ function mouseOver(event) {
   let clientX = getClientXY(event)[0];
   let clientY = getClientXY(event)[1];
   let mouseOverEventXYText = "Last mouseover x, y: " + clientX + ", " + clientY;
-  document.getElementById("mouseOverNum").innerHTML = mouseOverEventText;
-  document.getElementById("mouseoverXY").innerHTML = mouseOverEventXYText;
+  // document.getElementById("mouseOverNum").innerHTML = mouseOverEventText;
+  // document.getElementById("mouseoverXY").innerHTML = mouseOverEventXYText;
 }
 
 document.getElementById("bmo").addEventListener("mouseleave", mouseLeave);
@@ -183,8 +196,8 @@ function mouseLeave(event) {
   let clientX = getClientXY(event)[0];
   let clientY = getClientXY(event)[1];
   let mouseLeaveEventXYText = "Last mouseleave event x, y: " + clientX + ", " + clientY;
-  document.getElementById("mouseLeaveNum").innerHTML = mouseLeaveEventText;
-  document.getElementById("mouseleaveXY").innerHTML = mouseLeaveEventXYText;
+  // document.getElementById("mouseLeaveNum").innerHTML = mouseLeaveEventText;
+  // document.getElementById("mouseleaveXY").innerHTML = mouseLeaveEventXYText;
 }
 
 function getClientXY(event) {
@@ -192,6 +205,7 @@ function getClientXY(event) {
   var y = event.clientY;
   return [x, y];
 }
+*/
 console.log("script ending");
 </script>
 <!-- <script type="module" src="index.js"></script> -->

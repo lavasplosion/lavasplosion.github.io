@@ -1,3 +1,20 @@
+* touchstart
+* touchmove
+* touchend
+		
+
+* mousedown	
+* mousemove	
+* mouseup	
+
+SOCCER
+* offsetWidth, offsetHeight
+* pageX, pageY
+* clientX, clientY
+* getBoundingClientRect()
+	* left, top
+HUNTER
+
 ========== TO DO ==========
 Click Me
 Touch Me
@@ -6,7 +23,7 @@ Draw Me
 Drag Me
 In My Box
 WolfPuncher 2
-
+https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/screenX
 
 ??overflow: hidden;??
 ?? e.preventDefault()??
