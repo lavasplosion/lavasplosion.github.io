@@ -51,7 +51,9 @@ function getCreeperData() {
   let creeperWidthHeight = "creeper Width, Height: " + creeperWidth + ", " + creeperHeight;
   document.getElementById("CreeperWidthHeight").innerHTML = creeperWidthHeight;
 }
-
+// I'm not interested in figuring out why this doesn't work
+// will do it 1 by 1 w/ variables
+/*
 let xyMoveCoors = document.querySelector("#touchMovingData");
 document.addEventListener('touchmove', loglocation);
 function loglocation(e) {
@@ -62,6 +64,18 @@ function loglocation(e) {
     Movement X/Y: ${e.movementX}, ${e.movementY}
     Offset X/Y: ${e.offsetX}, ${e.offsetY}
     Page X/Y: ${e.pageX}, ${e.pageY}`;
+}
+*/
+let xyMoveCoors = document.querySelector("#touchMovingData");
+document.addEventListener('touchmove', loglocation);
+function loglocation(e) {
+  xyMoveCoors.innerText =
+    `Touch move coordinates:
+    Client X/Y: ${e.touches[0].clientX}, ${e.touches[0].clientY}
+    Screen X/Y: ${e.touches[0].screenX}, ${e.touches[0].screenY}
+    Movement X/Y: ${e.touches[0].movementX}, ${e.touches[0].movementY}
+    Offset X/Y: ${e.touches[0].offsetX}, ${e.touches[0].offsetY}
+    Page X/Y: ${e.touches[0].pageX}, ${e.touches[0].pageY}`;
 }
 
 let touchStarted = 0;
