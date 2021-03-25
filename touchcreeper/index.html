@@ -12,19 +12,19 @@
       <img src="./images/creeper.png" id="creeper">
     </div>
   </div>
-  <div class="touchData">
-  <p id="numTouchStart"># touchstart events</p>
-  <p id="numTouchMove"># touchmove events</p>
-  <p id="numTouchEnd"># touchend events</p>
-  <p id="touchMovingData">touch X, Y moving data</p>
-  </div>
   <div class="creeperData">
     <p id="CreeperLeftRight">creeper Left, Right</p>
     <p id="CreeperTopBottom">creeper Top, Bottom</p>
     <p id="CreeperXY">creeper X, Y</p>
     <p id="CreeperWidthHeight">creeper Width, Height</p>
-
   </div>
+  <div class="touchData">
+    <p id="numTouchStart"># touchstart events</p>
+    <p id="numTouchMove"># touchmove events</p>
+    <p id="numTouchEnd"># touchend events</p>
+    <p id="touchMovingData">touch X, Y moving data</p>
+  </div>
+
 <script>
 document.getElementById("creeper").addEventListener("touchmove", getCreeperData);
 function getCreeperData() {
@@ -51,30 +51,19 @@ function getCreeperData() {
   let creeperWidthHeight = "creeper Width, Height: " + creeperWidth + ", " + creeperHeight;
   document.getElementById("CreeperWidthHeight").innerHTML = creeperWidthHeight;
 }
-// I'm not interested in figuring out why this doesn't work
-// will do it 1 by 1 w/ variables
-/*
+
 let xyMoveCoors = document.querySelector("#touchMovingData");
 document.addEventListener('touchmove', loglocation);
 function loglocation(e) {
-  xyMoveCoors.innerText =
-    `Touch move coordinates:
-    Client X/Y: ${e.clientX}, ${e.clientY}
-    Screen X/Y: ${e.screenX}, ${e.screenY}
-    Movement X/Y: ${e.movementX}, ${e.movementY}
-    Offset X/Y: ${e.offsetX}, ${e.offsetY}
-    Page X/Y: ${e.pageX}, ${e.pageY}`;
-}
-*/
-let xyMoveCoors = document.querySelector("#touchMovingData");
-document.addEventListener('touchmove', loglocation);
-function loglocation(e) {
+  // There isn't a .movementX/Y for touch because a touch event can have multiple touches
+  // removing movement line
+  // https://stackoverflow.com/questions/63469667/what-are-movementx-and-movementy-alternatives-for-touch-events
+  // similar situation for .offsetX/Y
+  // https://stackoverflow.com/questions/17130940/retrieve-the-same-offsetx-on-touch-like-mouse-event
   xyMoveCoors.innerText =
     `Touch move coordinates:
     Client X/Y: ${e.touches[0].clientX}, ${e.touches[0].clientY}
     Screen X/Y: ${e.touches[0].screenX}, ${e.touches[0].screenY}
-    Movement X/Y: ${e.touches[0].movementX}, ${e.touches[0].movementY}
-    Offset X/Y: ${e.touches[0].offsetX}, ${e.touches[0].offsetY}
     Page X/Y: ${e.touches[0].pageX}, ${e.touches[0].pageY}`;
 }
 
