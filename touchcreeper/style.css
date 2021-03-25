@@ -33,6 +33,7 @@ body, html {
   width: 70%;
   height: auto;
   transform: scaleX(-1);
+  touch-action: none;
 }
 .touchData {
   float: left;
