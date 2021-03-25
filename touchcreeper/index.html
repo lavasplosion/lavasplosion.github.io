@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="responsivecontainer">
+    <div>
+      <img src="./images/windowsxpbackground.jpg" id="xpbackground">
+      <img src="./images/creeper.png" id="creeper">
+    </div>
+  </div>
+  <div class="touchData">
+  <p id="numTouchStart"># touchstart events</p>
+  <p id="numTouchMove"># touchmove events</p>
+  <p id="numTouchEnd"># touchend events</p>
+  <p id="touchMovingData">touch X, Y moving data</p>
+  </div>
+  <div class="creeperData">
+    <p id="CreeperLeftRight">creeper Left, Right</p>
+    <p id="CreeperTopBottom">creeper Top, Bottom</p>
+    <p id="CreeperXY">creeper X, Y</p>
+    <p id="CreeperWidthHeight">creeper Width, Height</p>
+
+  </div>
+<script>
+document.getElementById("creeper").addEventListener("touchmove", getCreeperData);
+function getCreeperData() {
+  let creeperImage = document.querySelector("#creeper")
+  let creeperRect = creeperImage.getBoundingClientRect();
+
+  creeperLeft = creeperRect.left;
+  creeperRight = creeperRect.right;
+  let creeperLeftRight = "creeper Left, Right: " + creeperLeft + ", " + creeperRight;
+  document.getElementById("creeperLeftRight").innerHTML = creeperLeftRight;
+
+  creeperTop = creeperRect.top;
+  creeperBottom = creeperRect.bottom;
+  let creeperTopBottom = "creeper Top, Bottom: " + creeperTop + ", " + creeperBottom;
+  document.getElementById("creeperTopBottom").innerHTML = creeperTopBottom;
+
+  creeperX = creeperRect.x;
+  creeperY = creeperRect.y;
+  let creeperXY = "creeper X, Y: " + creeperX + ", " + creeperY;
+  document.getElementById("creeperXY").innerHTML = creeperXY;
+
+  creeperWidth = creeperRect.width;
+  creeperHeight = creeperRect.height;
+  let creeperWidthHeight = "creeper Width, Height: " + creeperWidth + ", " + creeperHeight;
+  document.getElementById("creeperWidthHeight").innerHTML = creeperWidthHeight;
+}
+
+let xyMoveCoors = document.querySelector("#touchMovingData");
+document.addEventListener('touchmove', loglocation);
+function loglocation(e) {
+  xyMoveCoors.innerText =
+    `Touch move coordinates:
+    Client X/Y: ${e.clientX}, ${e.clientY}
+    Screen X/Y: ${e.screenX}, ${e.screenY}
+    Movement X/Y: ${e.movementX}, ${e.movementY}
+    Offset X/Y: ${e.offsetX}, ${e.offsetY}
+    Page X/Y: ${e.pageX}, ${e.pageY}`;
+}
+
+let touchStarted = 0;
+let touchMoved = 0;
+let touchEnded = 0;
+
+document.getElementById("creeper").addEventListener("touchstart", touchStartFunc);
+function touchStartFunc(event) {
+  touchStarted = touchStarted + 1;
+  console.log(touchStarted);
+  document.getElementById("numTouchStart").innerHTML = "touchstart event #: " + touchStarted;
+}
+
+document.getElementById("creeper").addEventListener("touchmove", touchMoveFunc);
+function touchMoveFunc(event) {
+  touchMoved = touchMoved + 1;
+  console.log(touchMoved);
+  document.getElementById("numTouchMove").innerHTML = "touchmove event #: " + touchMoved;
+}
+
+document.getElementById("creeper").addEventListener("touchend", touchEndFunc);
+function touchEndFunc(event) {
+  touchEnded = touchEnded + 1;
+  console.log(touchEnded);
+  document.getElementById("numTouchEnd").innerHTML = "touchend event #: " + touchEnded;
+}
+
+
+</script>
+
+</body>
+</html>
