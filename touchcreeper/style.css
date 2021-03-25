@@ -4,7 +4,7 @@ body, html {
 }
 .responsivecontainer {
   position: relative;
-  width: 100%;
+  width: 50%;
   height: auto;
   overflow: hidden;
 
@@ -33,7 +33,7 @@ body, html {
   width: 70%;
   height: auto;
   transform: scaleX(-1);
-  pointer-events: none
+  pointer-events: none;
 }
 .touchData {
   float: left;
