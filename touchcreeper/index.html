@@ -26,6 +26,8 @@
   </div>
 
 <script>
+document.getElementById('creeper').setAttribute('draggable', false);
+
 document.getElementById("creeper").addEventListener("touchmove", getCreeperData);
 function getCreeperData() {
   let creeperImage = document.querySelector("#creeper")

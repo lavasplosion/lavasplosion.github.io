@@ -35,11 +35,11 @@ body, html {
   transform: scaleX(-1);
 }
 .touchData {
-  float: right;
+  float: left;
   margin: 3%;
 }
 
 .creeperData {
-  float: left;
+  float: right;
   margin: 3%;
 }
