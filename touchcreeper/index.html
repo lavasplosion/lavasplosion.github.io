@@ -29,6 +29,8 @@
 <script>
 document.getElementById('creeper').setAttribute('draggable', false);
 
+window.addEventListener("contextmenu", function(e) { e.preventDefault(); })
+
 document.getElementById("creeper").addEventListener("touchcancel", consoleCanceledTouch);
 function consoleCanceledTouch() {
   console.log('cancelled touch');
@@ -83,7 +85,7 @@ let touchEnded = 0;
 document.getElementById("creeper").addEventListener("touchstart", touchStartFunc);
 function touchStartFunc(event) {
   touchStarted = touchStarted + 1;
-  console.log(touchStarted);
+  console.log('touchstart event');
   document.getElementById("numTouchStart").innerHTML = "touchstart event #: " + touchStarted;
 }
 
@@ -91,14 +93,14 @@ document.getElementById("creeper").addEventListener("touchmove", touchMoveFunc);
 function touchMoveFunc(event) {
   event.preventDefault();
   touchMoved = touchMoved + 1;
-  console.log(touchMoved);
+  console.log('touchmove event');
   document.getElementById("numTouchMove").innerHTML = "touchmove event #: " + touchMoved;
 }
 
 document.getElementById("creeper").addEventListener("touchend", touchEndFunc);
 function touchEndFunc(event) {
   touchEnded = touchEnded + 1;
-  console.log(touchEnded);
+  console.log('touchend event');
   document.getElementById("numTouchEnd").innerHTML = "touchend event #: " + touchEnded;
 }
 
