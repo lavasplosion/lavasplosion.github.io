@@ -29,6 +29,11 @@
 <script>
 document.getElementById('creeper').setAttribute('draggable', false);
 
+document.getElementById("creeper").addEventListener("touchcancel", consoleCanceledTouch);
+function consoleCanceledTouch() {
+  console.log('cancelled touch');
+}
+
 document.getElementById("creeper").addEventListener("touchmove", getCreeperData);
 function getCreeperData() {
   event.preventDefault();
