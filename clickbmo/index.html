@@ -104,6 +104,9 @@ function getAllPositions(event) {
   // console.log('stop');
   // console.log(boundingClientRect.height);
 }
+// I don't know why this isn't working and I don't care enough to figure it out
+// I'll just use variables instead
+/*
 let xyMoveCoors = document.querySelector("mousesmoveXY");
 document.addEventListener('mousemove', loglocation);
 function loglocation(e) {
@@ -115,6 +118,19 @@ function loglocation(e) {
     Offset X/Y: ${e.offsetX}, ${e.offsetY}
     Page X/y: ${e.pageX}, ${e.pageY}`;
     document.getElementById("mousemoveXY").innerHTML = xyMoveCoors[1];
+}
+*/
+let xyMoveCoors = document.querySelector("#mousemoveXY");
+document.addEventListener('mousemove', loglocation);
+function loglocation(e) {
+  console.log('hello?!?');
+  xyMoveCoors.innerText = `
+    Client X/Y: ${e.clientX}, ${e.clientY}
+    Screen X/Y: ${e.screenX}, ${e.screenY}
+    Movement X/Y: ${e.movementX}, ${e.movementY}
+    Offset X/Y: ${e.offsetX}, ${e.offsetY}
+    Page X/y: ${e.pageX}, ${e.pageY}`;
+    // document.getElementById("mousemoveXY").innerHTML = xyMoveCoors[1];
 }
 
 
