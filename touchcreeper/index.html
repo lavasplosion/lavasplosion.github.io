@@ -31,6 +31,7 @@ document.getElementById('creeper').setAttribute('draggable', false);
 
 document.getElementById("creeper").addEventListener("touchmove", getCreeperData);
 function getCreeperData() {
+  event.preventDefault();
   let creeperImage = document.querySelector("#creeper")
   let creeperRect = creeperImage.getBoundingClientRect();
 
@@ -83,6 +84,7 @@ function touchStartFunc(event) {
 
 document.getElementById("creeper").addEventListener("touchmove", touchMoveFunc);
 function touchMoveFunc(event) {
+  event.preventDefault();
   touchMoved = touchMoved + 1;
   console.log(touchMoved);
   document.getElementById("numTouchMove").innerHTML = "touchmove event #: " + touchMoved;
