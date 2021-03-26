@@ -38,14 +38,14 @@
 
     ball.ontouchstart = function(event) {
 
-      let shiftX = event.clientX - ball.getBoundingClientRect().left;
-      let shiftY = event.clientY - ball.getBoundingClientRect().top;
+      let shiftX = event.touches[0].clientX - ball.getBoundingClientRect().left;
+      let shiftY = event.touches[0].clientY - ball.getBoundingClientRect().top;
 
       ball.style.position = 'absolute';
       ball.style.zIndex = 1000;
       document.body.append(ball);
 
-      moveAt(event.pageX, event.pageY);
+      moveAt(event.touches[0].pageX, event.touches[0].pageY);
 
       function moveAt(pageX, pageY) {
         ball.style.left = pageX - shiftX + 'px';
@@ -53,10 +53,10 @@
       }
 
       function onMouseMove(event) {
-        moveAt(event.pageX, event.pageY);
+        moveAt(event.touches[0].pageX, event.touches[0].pageY);
 
         ball.hidden = true;
-        let elemBelow = document.elementFromPoint(event.clientX, event.clientY);
+        let elemBelow = document.elementFromPoint(event.touches[0].clientX, event.touches[0].clientY);
         ball.hidden = false;
 
         if (!elemBelow) return;
