@@ -1,0 +1,17 @@
+html, body {
+  overscroll-behavior: none;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  /*
+  overflow: hidden;
+  */
+}
+div {
+  width: 50%;
+  height: 50%;
+  border: 1px solid black;
+  margin: auto;
+  touch-action: none;
+}

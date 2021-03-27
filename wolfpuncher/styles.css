@@ -1,0 +1,189 @@
+.container {
+  position: relative;
+  overflow: hidden;
+  height: 408px;
+  width: 720px;
+
+}
+#IslandLady {
+  display: block;
+  height: 408px;
+  width: 720px;
+}
+
+#ChillWolf {
+  position: absolute;
+  transform: rotate(-28deg);
+  /*
+  div by 6
+  width: 121px;
+  height: 120px;
+  */
+  /* div by 4
+  726px wide, 720 px tall
+  width: 181.5px;
+  height: 180px;
+  */
+  /* div by 2
+  width: 363px;
+  height: 360px;
+  */
+  width: 242px;
+  height: 240px;
+  bottom: -10px;
+  left: 10px;
+  z-index: 75;
+  /* display: none; */
+}
+#AngryWolf {
+  position: absolute;
+  transform: rotate(-28deg);
+  width: 242px;
+  height: 240px;
+  bottom: -10px;
+  left: 10px;
+  display: none;
+  z-index: 75;
+}
+#Fister {
+  /* 447px wide x 350 px tall */
+  position: absolute;
+  width: 149px;
+  height: 116.666px;
+  top: 66px;
+  right: 55px;
+  transform: rotate(-25deg);
+  z-index: 75;
+}
+#Title {
+  position: absolute;
+  left: 160px;
+  z-index: 75;
+}
+#instructions {
+  position: absolute;
+  bottom: 105px;
+  right: 25px;
+  font-size: 25px;
+  text-align: center;
+  color: white;
+  z-index: 75;
+}
+#punchInstructions {
+  position: absolute;
+  bottom: 60px;
+  right: 5px;
+  font-size: 25px;
+  text-align: center;
+  color: white;
+  z-index: 75;
+}
+#score {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  font-size: 26px;
+  z-index: 75;
+}
+#health {
+  position: absolute;
+  top: 95%;
+  width: 100%;
+  background-color: green;
+  text-align: center;
+  font-size: 16px;
+  z-index: 75;
+}
+#endInstructions {
+  position: absolute;
+  bottom: 55px;
+  right: 340px;
+  font-size: 45px;
+  z-index: 1002;
+  color: white;
+  visibility: hidden;
+}
+#splosion {
+  /*
+  display: none;
+  142px wide 200px tall
+  */
+  width: 142px;
+  height: 200px;
+  /*
+  width: 213px;
+  height: 300px;
+  */
+  bottom: -5px;
+  left: 70px;
+  position: absolute;
+  display: none;
+  z-index: 155;
+}
+#initialBackground {
+  background-color: black;
+  position: absolute;
+  overflow: hidden;
+  height: 408px;
+  width: 720px;
+  z-index: 100;
+  display: inline-block;
+  text-align: center;
+}
+#iSeeRed {
+  background-color: red;
+  position: absolute;
+  overflow: hidden;
+  height: 408px;
+  width: 720px;
+  z-index: 100;
+  display: none;
+  z-index: 50;
+}
+#startButton {
+  top: 50%;
+  position: relative;
+  display: inline-block;
+}
+#endGameBackground {
+  background-image: url("./images/wolfgrave.jpg");
+  position: relative;
+  display: block;
+  height: 408px;
+  width: 720px;
+  z-index: 1001;
+  background-position: bottom;
+  display: none;
+}
+#endgameHorse {
+  position: absolute;
+  height: 210px;
+  width: 239px;
+  z-index: 1001;
+  top:198px;
+  right:5px;
+  display: none;
+}
+.lava {
+  position: absolute;
+  width: 50;
+  height: 50px;
+  z-index: 150;
+  display: none;
+}
+#lava1 {
+  top: 275px;
+  right: 650px;
+}
+#lava2 {
+  top: 234px;
+  right: 510px;
+}
+#lava3 {
+  top: 206px;
+  right: 605px;
+}
+#lava4 {
+  top: 325px;
+  right: 550px;
+}
