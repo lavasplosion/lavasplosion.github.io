@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div>
+
+
+  <div class="battle">
+    <div id="title" class="title">
+      <h1>Wolfpuncher</h1>
+    </div>
+    <!-- island_lady.jpeg
+    <img id="background" src="ice-kingdom.jpg">
+    -->
+    <img id="background" src="island_lady.jpeg">
+
+    <img id="angryWolf" src="angry_wolf_clear.png">
+    <img id="chillWolf" src="chill_party_wolf_clear.png">
+    <!-- <img id="fister" src="fister_clear.png"> -->
+    <div id="fister"></div>
+  </div>
+
+
+
+
+</div>
+
+
+
+<script>
+var fister = document.getElementById("fister");
+fister.onmousedown = function(event) {
+  // (1) prepare to moving: make absolute and on top by z-index
+  fister.style.position = 'absolute';
+  fister.style.zIndex = 1000;
+
+  // move it out of any current parents directly into body
+  // to make it positioned relative to the body
+  document.body.append(fister);
+
+  // centers the ball at (pageX, pageY) coordinates
+  function moveAt(pageX, pageY) {
+    fister.style.left = pageX - fister.offsetWidth / 2 + 'px';
+    fister.style.top = pageY - fister.offsetHeight / 2 + 'px';
+    fister.style.width = 25%;
+    fister.style.height = 25%;
+  }
+
+  // move our absolutely positioned ball under the pointer
+  moveAt(event.pageX, event.pageY);
+
+  function onMouseMove(event) {
+    moveAt(fister.pageX, fister.pageY);
+  }
+
+  // (2) move the ball on mousemove
+  document.addEventListener('mousemove', onMouseMove);
+
+  // (3) drop the ball, remove unneeded handlers
+  fister.onmouseup = function() {
+    document.removeEventListener('mousemove', onMouseMove);
+    fister.onmouseup = null;
+  };
+
+};
+
+
+
+
+
+
+
+
+
+// transform: translate(px, px)
+/*
+var fister = document.getElementById("fister");
+let moving = false;
+fister.addEventListener('mousedown', onMouseDown);
+function onMouseDown(event) {
+  console.log('mouse down');
+  moving = true;
+}
+
+fister.addEventListener('mouseup', onMouseUp);
+function onMouseUp(event) {
+  console.log('mouse up');
+  moving = false;
+
+}
+let x = 0;
+let y = 0;
+fister.addEventListener('mousemove', onMouseMove);
+function onMouseMove(event) {
+  if (moving == true) {
+    console.log('moving');
+    x = event.offsetX;
+    y = event.offsetY;
+    console.log(x + " " + y);
+    document.getElementById("fister").style.transform = "translate(" + x + "px, " + y + "px)";
+  }
+}
+*/
+// document.getElementById("fister").style.transform = "translate(-34%, 40%)";
+/*
+fister.onmousedown = function(event) {
+  fister.style.position = 'absolute';
+  fister.style.zIndex = 1000;
+  document.body.append(fister);
+  moveAt(event.pageX, event.pageY);
+
+  function moveAt(pageX, pageY) {
+    fister.style.left = pageX + 'px';
+    fister.style.top = pageY + 'px';
+  }
+}
+*/
+</script>
+</body>
+</html>
