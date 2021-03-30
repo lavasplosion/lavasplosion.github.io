@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://kit.fontawesome.com/2f9c919c13.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="tbg">
+  <div class="theader">
+    <!-- <i class="fa fa-cog" aria-hidden="true"></i> -->
+    <!-- <i class="fa fa-comments" aria-hidden="true"></i> -->
+    <div class="tlogo">
+      <!-- <img src="https://worldvectorlogo.com/logos/tinder-1.svg" alt="Tinder Logo" title="Tinder Logo" /> -->
+    </div>
+  </div>
+  <div class="tbgwrap">
+    <div class="tphoto">
+      <!-- test adding heartbeat BELOW -->
+      <div class="superSpreaderBackground">
+        <div class="load">
+          <!-- <i class="fa fa-heartbeat fa-3x"></i> -->
+          <i class="fas fa-lungs-virus"></i>
+        </div>
+        <div>
+          <p id="superSpreaderText">There are no potential hosts around you.</p>
+        </div>
+      </div>
+      <!-- test adding heartbeat ABOVE -->
+      <!-- test of nope, superspread, yes -->
+      <div class="stamp is-approved" id="is-nope">MASKED</div>
+      <div class="is-superspread" id="is-superspread">SUPER <br> SPREAD</div>
+      <div class="stamp is-nope" id="is-approved">INFECT</div>
+      <!--                               -->
+      <img id="profileImage" src="./generated-photos-new/front/image (0).png" title="tphoto" alt="Tinder Photo" />
+      <!-- <img id="maskImage" src="./mask.png" />
+      <img id="maskImage" src="./Masks/front-mask-rem-straps.png" />
+      -->
+      <img id="maskImage" src="./Masks/mask2.png" />
+      <div id="tempMaskGoesHere" id="maskImage"></div>
+      <!-- <div id=backgroundColor></div> -->
+      <!-- <div class="tname" id="profileName">Jane Doe, <span class="age" id="profileAge">27</span></div> -->
+      <div>
+        <div class="tname" id="profileName">Jane Doe, 27</div>
+      </div>
+      <!--
+      <div class="tinfo"><i class="fa fa-book" aria-hidden="true"> 0</i><i class="fa fa-users" aria-hidden="true"> 0</i></div>
+      <i class="fas fa-plane"></i>
+      <i class="fas fa-people-arrows"></i>
+      -->
+      <div class="tinfo">
+        <i class="fas fa-plane" aria-hidden="true" id="planeTrips">2</i>
+        <i class="fas fa-people-arrows" aria-hidden="true" id="closePersonalContact">34</i>
+      </div>
+    </div>
+    <div class="tcontrols">
+
+    <!--	NO SECTION
+      <div class="tno"><i class="fa fa-times" aria-hidden="true"></i></div>
+      -->
+      <div class="tno"><i class="fas fa-head-side-mask fa-flip-horizontal" aria-hidden="true" id="cover"></i></div>
+      <!-- SUPER LIKE SECTION
+      <div class="ti"><i class="fa fa-info" aria-hidden="true"></i></div>
+      <div class="ti"><i class="fas fa-biohazard" aria-hidden="true"></i></div>
+      <i class="fas fa-lungs-virus"></i>
+      -->
+      <!-- <div class="ti"><i class="fas fa-lungs-virus" aria-hidden="true" id="spread"></i></div> -->
+      <div class="ti"><i class="fa fa-users" aria-hidden="true" id="spread"></i></div>
+      <!-- YES SECTION
+      <div class="tyes"><i class="fa fa-heart" aria-hidden="true"></i></div>
+      -->
+      <!-- <div class="tyes"><i class="fas fa-head-side-cough" aria-hidden="true" id="cough"></i></div> -->
+      <div class="tyes"><i class="fas fa-lungs-virus" aria-hidden="true" id="cough"></i></div>
+    </div>
+  </div>
+</div>
+<div class="debug">
+	<p id="lastButtonOutput"></p>
+</div>
+</body>
+<script>
+// swipeUp();
+// showNextProfile();
+function swipeUp() {
+  // SHOW MASK COVERING NOSE
+  // <img id="profileImage" src="./generated-photos-new/front/image (0).png" title="tphoto" alt="Tinder Photo" />
+  //
+  var tempMaskImage = new Image();
+  /* document.getElementById("is-nope").style.opacity = 1; */
+  document.getElementById("is-nope").style.display = 'inline-block';
+  tempMaskImage.src= "./Masks/mask2.png";
+  tempMaskImage.id = "tempMaskImage";
+  document.getElementById('tempMaskGoesHere').appendChild(tempMaskImage);
+  document.getElementById("tempMaskImage").style.top = '180px';
+  document.getElementById("tempMaskImage").style.left = '80px';
+  document.getElementById("tempMaskImage").style.width = '187px';
+  document.getElementById("tempMaskImage").style.position = 'absolute';
+  document.getElementById("tempMaskImage").style.zIndex = 10;
+  // setTimeout(() => tempMaskImage.parentNode.removeChild(tempMaskImage) = null, 1000);
+  setTimeout(function() { tempMaskImage.parentNode.removeChild(tempMaskImage) }, 1000);
+
+  // setTimeout( function(){ tempMaskImage.parentNode.removeChild(tempMaskImage) }, 10000);
+ setTimeout( function(){ document.getElementById("is-nope").style.display = 'none'; }, 1000);
+  // trigger swipe up graphic
+  // BUILD
+  // console.log('swipeup');
+  // top: 180px;  front-mask.png setting to cover nose
+  // left: 80px;
+  // width: 187px;
+  // setTimeout( showNextProfile(), 1000);
+  setTimeout(function() { showNextProfile() }, 1000);
+  // showNextProfile();
+};
+function swipeDown() {
+  // trigger sweipe down graphic
+  // BUILD
+  // console.log('swipedown');
+
+  // MAKE MASK INVISIBLE
+  // showNextProfile();
+  document.getElementById("is-approved").style.display = 'inline-block';
+  setTimeout( function(){ document.getElementById("is-approved").style.display = 'none'; }, 1000);
+  setTimeout(function() { showNextProfile() }, 1000);
+};
+
+function superSpread() {
+  /*
+  #superSpreaderText
+  .superSpreaderBackground
+  .load
+  */
+  document.getElementById("is-superspread").style.display = 'inline-block';
+  document.getElementById("maskImage").style.opacity = 0;
+
+  setTimeout(function() { document.getElementById("superSpreaderText").style.display = 'inline-block'}, 3000);
+  setTimeout(function() { document.getElementById("profileImage").style.opacity = 0 }, 3000);
+
+  setTimeout(function() { document.getElementById("is-superspread").style.display = 'none' }, 3000);
+
+  setTimeout(function() { document.getElementsByClassName("superSpreaderBackground")[0].style.display = 'inline-block' }, 3000);
+  setTimeout(function() { document.getElementsByClassName("load")[0].style.display = 'inline-block' }, 3000);
+
+  setTimeout(function() { document.getElementById("superSpreaderText").style.display = 'none' }, 10000);
+  setTimeout(function() { document.getElementsByClassName("superSpreaderBackground")[0].style.display = 'none' }, 10000);
+  setTimeout(function() { document.getElementsByClassName("load")[0].style.display = 'none' }, 10000);
+
+  setTimeout(function() { document.getElementById("profileImage").style.opacity = 1; }, 10000);
+  setTimeout(function() { document.getElementById("maskImage").style.opacity = 1; }, 10000);
+  setTimeout(function() { showNextProfile() }, 10000);
+
+}
+
+function showNextProfile() {
+  document.getElementById("maskImage").style.display = 'inline';
+  chooseLRFProfilePic();
+  setBackgroundColor();
+  setNumFlightsTraveled();
+  numClosePersonalContact();
+  // getName();
+  // getAge();
+  getNameAndAge();
+  // name
+  // age
+}
+
+var namePlusAge = "textstringhere";
+function getNameAndAge() {
+  getName();
+  getAge();
+  namePlusAge = currentName + ", " + randomAge.toString();
+  document.getElementById("profileName").innerHTML = namePlusAge;
+}
+
+
+// get name
+var currentNameArrayPos = 0;
+var currentName = "textaasastasdf";
+function getName() {
+  var nameArray = ["Elliot", "Quinn", "Taylor", "Angel", "Hayden", "Parker", "Adrian",
+  "Dakota", "Cameron", "Devon", "Evan", "Jesse", "Jody", "Kelsey", "Kendall",
+  "Morgan", "Robin", "Rory", "Shiloh", ]
+  currentName = nameArray[currentNameArrayPos];
+  currentNameArrayPos = currentNameArrayPos + 1;
+  if (currentNameArrayPos == 18) {
+    currentNameArrayPos = 0;
+  }
+
+  // return currentName;
+  // document.getElementById("profileName").innerHTML = currentName;
+
+}
+// get age
+var randomAge = 0;
+function getAge() {
+  randomAge = 18 + Math.floor(Math.random() * 18);
+  // return randomAge;
+  console.log("random age is: " + randomAge);
+  randomAge = randomAge.toString();
+  // document.getElementById("profileAge").innerHTML = randomAge;
+}
+
+// get flights
+var numFlightsTraveled = null;
+function setNumFlightsTraveled(){
+  numFlightsTraveled = Math.floor(Math.random() * 9);
+  document.getElementById("planeTrips").innerHTML = numFlightsTraveled;
+  return numFlightsTraveled;
+}
+// get num personal contacts
+var numClosePersonal = null;
+function numClosePersonalContact(){
+  numClosePersonal = 10 + numFlightsTraveled * 4 + Math.floor(Math.random() * 63);
+  document.getElementById("closePersonalContact").innerHTML = numClosePersonal;
+}
+// get age
+
+// get name
+
+// get name and age line
+
+
+
+// var randomColNum = 666;
+var randomColNum = 0;
+// var randomColorChoice = null;
+var targetImage = document.getElementById("profileImage").getElementsByClassName("tphoto");
+function setBackgroundColor() {
+  // randomColNum = Math.floor(Math.random() * 11);
+  var arrayOfColors = ["#C2C2C2", "#F6F6F6", "#FAD6D6", "#FBDEED", "#E3D6FD", "#D5EDFE",
+  "#DAF8F9", "#E1F6D7", "#F2F8DA", "#FEF7D7", "#FBE4D4"];
+  var randomColorChoice = arrayOfColors[randomColNum];
+  randomColNum = randomColNum + 1;
+  if (randomColNum == 10) {
+    randomColNum = 0;
+  }
+  // console.log("random number generates color: " + randomColorChoice);
+  // console.log("I use # 3" + arrayOfColors[3]);
+  // console.log("which should be the same as: " + arrayOfColors[3] + "but y: " + randomColorChoice);
+  document.getElementById("profileImage").style.backgroundColor = randomColorChoice;
+  // console.log(targetImage);
+  // targetImage.style.backgroundColor = randomColorChoice;
+  // console.log("random color num: " + randomColNum);
+  // console.log("random color: " + randomColorChoice);
+  // document.getElementById("profileImage").setAttribute('style', "'background-color:" + randomColorChoice + " !important'");
+}
+
+var randomNum = null;
+function chooseLRFProfilePic() {
+  // testing w/ front only
+  // randomNum = Math.floor(Math.random() * 3);
+  randomNum = 0;
+  console.log("random number is " + randomNum);
+  if (randomNum == 0) {
+    console.log("calling FRONT profile pic FUNCTION");
+    showNextFrontProfile();
+  }    else if (randomNum == 1) {
+    console.log("calling LEFT profile pic FUNCTION");
+    showNextLeftProfile();
+  }  else if (randomNum == 2) {
+    console.log("calling RIGHT profile pic FUNCTION");
+    showNextRightProfile();
+  }   else {
+    console.log("WHAT THE F&#@ IS GOING ON?!?")
+  }
+}
+
+// Array of Front Pictures
+/* css settings for front-mask.png
+top: 220px;
+// top: 180px;  front-mask.png setting to cover nose
+left: 80px;
+width: 187px;
+*/
+var currentFrontArrayPos = 1;
+var currentProfilePic = document.getElementById("profileImage");
+var frontPicArray = ["image (0).png", "image (1).png", "image (2).png",
+"image (3).png", "image (4).png", "image (5).png", "image (6).png",
+"image (7).png", "image (8).png", "image (9).png"];
+var arrayFrontLength = 10;
+var pathFront = "./generated-photos-new/front/";
+var currentFrontArrayPic = "image (9).png";
+function showNextFrontProfile() {
+  console.log("FRONT profile function RUNNING");
+  pathFront = "./generated-photos-new/front/"
+  currentFrontArrayPic = frontPicArray[currentFrontArrayPos];
+  // set mask css here
+  document.getElementById("maskImage").style.top = '220px';
+  document.getElementById("maskImage").style.left = '80px';
+  document.getElementById("maskImage").style.width = '187px';
+  currentProfilePic.src = pathFront + currentFrontArrayPic;
+  currentFrontArrayPos = currentFrontArrayPos + 1;
+  console.log(currentFrontArrayPos);
+  var picsFrontRemaining = arrayFrontLength - currentFrontArrayPos;
+  console.log(picsFrontRemaining);
+  if (picsFrontRemaining == 0) {
+    console.log("there are no pictures remaining for FRONT array");
+    console.log("restarting FRONT array position!");
+    currentFrontArrayPos = 0;
+  }
+}
+
+// Array of Left-Facing Pictures
+var currentLeftArrayPos = 0;
+var currentProfilePic = document.getElementById("profileImage");
+var leftPicArray = ["cG5n.png", "cG5n (1).png", "MDcyMDAucG5n.png",
+"NDgzMTQucG5n.png", "NjQ4MjcucG5n.png", "NjQ5NzAucG5n.png", "NjU2NzYucG5n.png",
+"NjY1MjYucG5n.png", "NzMxNDIucG5n.png", "OTc5NTAucG5n.png"];
+var arrayLeftLength = 10;
+function showNextLeftProfile() {
+  console.log("LEFT profile function RUNNING");
+  pathLeft = "./generated-photos-new/left/"
+  currentLeftArrayPic = leftPicArray[currentLeftArrayPos];
+  currentProfilePic.src = pathLeft + currentLeftArrayPic;
+  currentLeftArrayPos = currentLeftArrayPos + 1;
+  console.log(currentLeftArrayPos);
+  var picsLeftRemaining = arrayLeftLength - currentLeftArrayPos;
+  console.log(picsLeftRemaining);
+  if (picsLeftRemaining == 0) {
+    console.log("there are no pictures remaining for LEFT array!");
+    console.log("restarting LEFT position!");
+    currentLeftArrayPos = 0;
+  }
+}
+
+
+// Array of Right-Facing Pictures
+var currentArrayRightPos = 0;
+var currentProfilePic = document.getElementById("profileImage");
+var rightPicArray = ["580b57fcd9996e24bc43c2f7.png", "cG5n.png", "MjA1ODgucG5n.png",
+"MjMxODMucG5n.png", "NjQ4NjAucG5n.png", "NzYxMzEucG5n.png", "ODA1OTYucG5n.png",
+"ODk4ODEucG5n.png", "OTAyMDMucG5n.png", "OTE3NzQucG5n.png"];
+var arrayRightLength = 10;
+function showNextRightProfile() {
+  console.log("RIGHT profile function RUNNING");
+  pathRight = "./generated-photos-new/right/"
+  currentRightArrayPic = rightPicArray[currentArrayRightPos];
+  currentProfilePic.src = pathRight + currentRightArrayPic;
+  currentArrayRightPos = currentArrayRightPos + 1;
+  console.log(currentArrayRightPos);
+  var picsRightRemaining = arrayRightLength - currentArrayRightPos;
+  console.log(picsRightRemaining);
+  if (picsRightRemaining == 0) {
+    console.log("there are no pictures remaining from RIGHT array!");
+    console.log("restarting RIGHT position!");
+    currentArrayRightPos = 0;
+  }
+}
+
+
+
+/*
+window.addEventListener("touchmove", preventThatDefault);
+window.addEventListener("mousedown", prefentThatDefault);
+function preventThatDefault(event) {
+  event.preventDefault();
+}
+*/
+// document.body.addEventListener('touchmove', function(e){ e.preventDefault(); });
+
+var thatMask = document.getElementById('maskImage');
+var thatProfile = document.getElementById('profileImage');
+thatMask.addEventListener("mousedown", function(event){
+  event.preventDefault();
+})
+thatMask.addEventListener("touchstart", function(event){
+  event.preventDefault();
+})
+thatProfile.addEventListener("mousedown", function(event){
+  event.preventDefault();
+})
+thatProfile.addEventListener("touchstart", function(event){
+  event.preventDefault();
+})
+
+/*
+thatMask.ondragstart = function() {
+  return false;
+};
+*/
+
+
+// click
+var coverButtonVar = document.getElementById("cover");
+var spreadButtonVar = document.getElementById("spread");
+var coughButtonVar = document.getElementById("cough");
+coverButtonVar.addEventListener("click", function(){
+  document.getElementById("lastButtonOutput").innerHTML = "COVER";
+  document.getElementById("maskImage").style.display = 'none';
+  swipeUp();
+});
+spreadButtonVar.addEventListener("click", function(){
+  document.getElementById("lastButtonOutput").innerHTML = "SPREAD";
+  // SUPER SPREADER!!!
+  // showNextProfile();
+  // showNextProfile();
+  superSpread();
+});
+coughButtonVar.addEventListener("click", function(){
+  document.getElementById("lastButtonOutput").innerHTML = "COUGH";
+  document.getElementById("maskImage").style.display = 'none';
+  swipeDown();
+});
+// touch
+coverButtonVar.addEventListener("touchstart", function(){
+  document.getElementById("lastButtonOutput").innerHTML = "COVER";
+  document.getElementById("maskImage").style.display = 'none';
+  swipeUp();
+});
+spreadButtonVar.addEventListener("touchstart", function(){
+  document.getElementById("lastButtonOutput").innerHTML = "SPREAD";
+  // SUPER SPREADER!!!
+  // showNextProfile();
+  superSpread();
+});
+coughButtonVar.addEventListener("touchstart", function(){
+  document.getElementById("lastButtonOutput").innerHTML = "COUGH";
+  document.getElementById("maskImage").style.display = 'none';
+  swipeDown();
+});
+</script>
+<script type="module" src="index.js"></script>
+<!--
+<script src="./index.js"></script>
+-->
+</html>
