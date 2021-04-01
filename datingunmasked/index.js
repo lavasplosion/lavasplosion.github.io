@@ -73,7 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
     else {
       // rickMatchProfile();
       console.log("rickMatchProfile();");
-      meetingRick();
+      console.log("you're not allowed to choose this");
+      // meetingRick();
     }
 
     // showNextProfile();

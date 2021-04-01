@@ -252,10 +252,10 @@
     <a href="index.html">swipe</a>
     <a href="match.html">match</a>
   -->
-    <a href="NEEDSWORKmessages.html"><i class="fa fa-comments" aria-hidden="true"></i></a>
+  <i class="fa fa-comments" aria-hidden="true"></i>
     <div class="tlogo">
       <!-- <img src="https://worldvectorlogo.com/logos/tinder-1.svg" alt="Tinder Logo" title="Tinder Logo" /> -->
-      <img src="./MASKD_logo.png" alt="Tinder Logo" title="Tinder Logo" />
+      <img src="./LOGO-SEND.jpg" alt="Tinder Logo" title="Tinder Logo" />
       <!-- <h1>MASKD</h1> -->
     </div>
   </div>
@@ -264,7 +264,7 @@
     <div class="match">
       <div class="mtext">It's a Match!</div>
       <!-- <div class="m1"><img src="./Untitled.png" id="canIgrabthis"/></div> -->
-      <div class="m2"><img src="./rick-sanchez-drunk-hawaii.jpeg" /></div>
+      <div class="m2"><img src="./drunk-hawaii-rick-send.png" /></div>
       <div class="sendmsg"><i class="fa fa-comment" aria-hidden="true" onclick="messagingRick()" touchstart="messagingRick()"><p>Message Rick</p></i>></div>
       <div class="playing"><i class="fa fa-user" aria-hidden="true"></i><p>Not Done Yet</p></div>
       <!-- <div class="share"><i class="fa fa-share-square-o" aria-hidden="true"></i><p>Tell Your Friends</p></div> -->
@@ -294,7 +294,7 @@
             </div>
 
             <div class="msg-text">
-              ALOHA!
+              ALOhA !
             </div>
           </div>
         </div>
@@ -400,10 +400,15 @@ function rickRoll() {
   document.getElementsByClassName("tinfo")[0].style.display = 'none';
   document.getElementsByClassName("tcontrols")[0].style.display = 'none';
   */
+  // document.getElementById("myDIV").removeEventListener("mousemove", myFunction);
+  document.getElementsByClassName("tcontrols")[0].style.display = 'none';
+
   document.getElementsByClassName("msger")[0].style.display = 'none';
   document.getElementsByClassName("tphoto")[0].style.display = 'inline-block';
   document.getElementsByClassName("tinfo")[0].style.display = 'inline-block';
-  document.getElementsByClassName("tcontrols")[0].style.display = 'inline-block';
+  // document.getElementsByClassName("tcontrols")[0].style.display = 'inline-block';
+  // document.getElementById("myDIV").removeEventListener("mousemove", myFunction);
+
   document.getElementById("profileImage").src="rickastleymulti.gif";
   document.getElementById("profileImage").style.height = '350px';
   document.getElementById("profileImage").style.width = 'auto';
@@ -420,13 +425,9 @@ const msgerInput = get(".msger-input");
 const msgerChat = get(".msger-chat");
 
 const BOT_MSGS = [
-  "means hello and goodbye in hawaii but , uh aloha has snothing todo with this ap",
-  "im so drunk",
-  "okay, here's the deal iI'm gonna rest my eyes for a bit .I'm not goin to sleep",
-  "i just jussttt need to rest my eyes so let's try to make this one simple. wear a mask",
-  "wear a mask and try to make i5t a lesson about yourselves like how your selfish or something",
-  "and umh, oh yea. your phone is about to get loudSo turn down the volume headphoes",
-  "i just jump scares are lame. you gotta be ready for ,m I'm gonna play Nickelback",
+  "lLets tryto make thiws one simple. wearr a mask",
+  "wear a mask and ttry to make i5t a lesson about yoursel ves like how yourrr selfishor something",
+  "and umh, ,oh yea. your phone is about   to get LOUDSo turn down the headphnoes",
   "and also hawaii"
   /*
 ALOhA!
@@ -447,7 +448,7 @@ and also hawaii
 ];
 
 // Icons made by Freepik from www.flaticon.com
-const BOT_IMG = "./rick-sanchez-drunk-hawaii.jpeg";
+const BOT_IMG = "./drunk-hawaii-rick-send.png";
 const PERSON_IMG = "";
 const BOT_NAME = "Rick";
 const PERSON_NAME = "";
@@ -495,7 +496,7 @@ function botResponse() {
   setTimeout(() => {
     appendMessage(BOT_NAME, BOT_IMG, "left", msgText);
   }, delay);
-  if (rickResponseNum == 7) {
+  if (rickResponseNum == 3) {
     console.log('running rick roll');
     rickRoll();
   }
@@ -624,8 +625,8 @@ function meetingRick() {
   if (meetingRickCounter == 0) {
   console.log("MEETING RICK!");
   // setTimeout(function() { THINGGOESHERE = 'inline-block'}, 3000);
-  document.getElementById("profileImage").src="rick-sanchez-drunk-hawaii.jpeg";
-  document.getElementById("profileImage").style.height = "350px";
+  document.getElementById("profileImage").src="drunk-hawaii-rick-send.png";
+  document.getElementById("profileImage").style.height = "370px";
   document.getElementById("profileImage").style.width = "auto";
   document.getElementById("profileName").innerHTML = "Rick Sanchez, 70";
   meetingRickCounter = meetingRickCounter + 1;
@@ -886,8 +887,12 @@ coverButtonVar.addEventListener("click", function(){
   document.getElementById("maskImage").style.display = 'none';
   if (superSpreadCounter < 2) {
   swipeUp();
-} else {
-  setTimeout(function() { meetingRick(); }, 10000);
+} else if (superSpreadCounter == 2) {
+  meetingRick();
+}
+  else {
+
+  console.log("stop clicking");
 }
 });
 spreadButtonVar.addEventListener("click", function(){
@@ -897,8 +902,10 @@ spreadButtonVar.addEventListener("click", function(){
   // showNextProfile();
   if (superSpreadCounter < 2) {
   superSpread();
+} else if (superSpreadCounter == 2) {
+  console.log("you're not allowed to choose this");
 } else {
-  setTimeout(function() { meetingRick(); }, 10000);
+  console.log("stop clicking");
 }
 });
 coughButtonVar.addEventListener("click", function(){
@@ -906,8 +913,10 @@ coughButtonVar.addEventListener("click", function(){
   document.getElementById("maskImage").style.display = 'none';
   if (superSpreadCounter < 2) {
   swipeDown();
+} else if (superSpreadCounter == 2) {
+  console.log("you're not allowed to choose this");
 } else {
-  setTimeout(function() { meetingRick(); }, 10000);
+  console.log("stop clicking");
 }
 });
 // touch
