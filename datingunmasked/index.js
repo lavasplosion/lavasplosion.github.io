@@ -51,34 +51,40 @@ document.addEventListener('DOMContentLoaded', () => {
     target.style.transform = 'perspective(1000px) translate3d(0, -2000px, 0)';
     setTimeout(() => target.style.transform = null, 1000);
     console.log('swipeup');
-    console.log("swipe up superspreadcounter is" + superSpreadCounter);
-    if (superSpreadCounter < 2) {
-      swipeUp();
-    } else {
+  //  console.log("swipe up superspreadcounter is" + superSpreadCounter);
+//    if (superSpreadCounter < 2) {
+  if (document.getElementById("profileName").innerHTML == "Dave") {
+    console.log("that works!");
+    meetingRick();
+  } else {
+    swipeUp();
+  }
+
+  //  } else {
       // rickMatchProfile();
-      console.log("rickMatchProfile();");
-      meetingRick();
-    }
+  //    console.log("rickMatchProfile();");
+    //  meetingRick();
+    });
 
     // showNextProfile();
-  });
+
   gesture.on('swipedown', () => {
     target.style.transform = 'perspective(1000px) translate3d(0, 2000px, 0)';
     setTimeout(() => target.style.transform = null, 1000);
     console.log('swipedown');
-    console.log("swipe down superspreadcounter is" + superSpreadCounter);
-    if (superSpreadCounter < 2) {
+  //  console.log("swipe down superspreadcounter is" + superSpreadCounter);
+  //  if (superSpreadCounter < 2) {
       swipeDown();
-    }
-    else {
+//    }
+//    else {
       // rickMatchProfile();
-      console.log("rickMatchProfile();");
-      console.log("you're not allowed to choose this");
+  //    console.log("rickMatchProfile();");
+  //    console.log("you're not allowed to choose this");
       // meetingRick();
-    }
+    });
 
     // showNextProfile();
-  });
+  //});
   /*
   let tapTimeout;
   gesture.on('tap', () => {

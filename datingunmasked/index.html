@@ -239,6 +239,9 @@
   /*
   END OF MATCH STYLES
   */
+  .debug {
+    display: none;
+  }
   </style>
 </head>
 <body>
@@ -264,8 +267,8 @@
     <div class="match">
       <div class="mtext">It's a Match!</div>
       <!-- <div class="m1"><img src="./Untitled.png" id="canIgrabthis"/></div> -->
-      <div class="m2"><img src="./drunk-hawaii-rick-send.png" /></div>
-      <div class="sendmsg"><i class="fa fa-comment" aria-hidden="true" onclick="messagingRick()" touchstart="messagingRick()"><p>Message Rick</p></i>></div>
+      <div class="m2"><img src="./Untitled4.png" /></div>
+      <div class="sendmsg"><i class="fa fa-comment" aria-hidden="true" onclick="messagingRick()" touchstart="messagingRick()"><p>Message Dave</p></i>></div>
       <div class="playing"><i class="fa fa-user" aria-hidden="true"></i><p>Not Done Yet</p></div>
       <!-- <div class="share"><i class="fa fa-share-square-o" aria-hidden="true"></i><p>Tell Your Friends</p></div> -->
     </div>
@@ -285,16 +288,16 @@
       <main class="msger-chat">
         <div class="msg left-msg">
           <!-- left profile pic -->
-          <div class="msg-img" style="background-image: url('./rick-sanchez-drunk-hawaii.jpeg')"
+          <div class="msg-img" style="background-image: url('./Untitled4.png')"
           ></div>
 
           <div class="msg-bubble">
             <div class="msg-info">
-              <div class="msg-info-name">Rick</div>
+              <div class="msg-info-name">Dave</div>
             </div>
 
             <div class="msg-text">
-              ALOhA !
+              Hey
             </div>
           </div>
         </div>
@@ -329,6 +332,7 @@
       <div class="stamp is-nope" id="is-approved">MEET</div>
       <!--                               -->
       <img id="profileImage" src="./generated-photos-new/front/image (0).png" title="tphoto" alt="Tinder Photo" />
+      <!-- <img id="profileImage" src="./Untitled4.png" title="tphoto" alt="Tinder Photo" /> -->
       <!-- <img id="maskImage" src="./mask.png" />
       <img id="maskImage" src="./Masks/front-mask-rem-straps.png" />
       -->
@@ -337,7 +341,7 @@
       <!-- <div id=backgroundColor></div> -->
       <!-- <div class="tname" id="profileName">Jane Doe, <span class="age" id="profileAge">27</span></div> -->
       <div>
-        <div class="tname" id="profileName">Jane Doe, 27</div>
+        <div class="tname" id="profileName">Jane, 27</div>
       </div>
       <!--
       <div class="tinfo"><i class="fa fa-book" aria-hidden="true"> 0</i><i class="fa fa-users" aria-hidden="true"> 0</i></div>
@@ -371,9 +375,11 @@
     </div>
   </div>
 </div>
+
 <div class="debug">
 	<p id="lastButtonOutput"></p>
 </div>
+
 </body>
 <script>
 // SCRIPT FOR CHAT START
@@ -401,12 +407,12 @@ function rickRoll() {
   document.getElementsByClassName("tcontrols")[0].style.display = 'none';
   */
   // document.getElementById("myDIV").removeEventListener("mousemove", myFunction);
-  document.getElementsByClassName("tcontrols")[0].style.display = 'none';
+  // document.getElementsByClassName("tcontrols")[0].style.display = 'none';
 
   document.getElementsByClassName("msger")[0].style.display = 'none';
   document.getElementsByClassName("tphoto")[0].style.display = 'inline-block';
   document.getElementsByClassName("tinfo")[0].style.display = 'inline-block';
-  // document.getElementsByClassName("tcontrols")[0].style.display = 'inline-block';
+  document.getElementsByClassName("tcontrols")[0].style.display = 'inline-block';
   // document.getElementById("myDIV").removeEventListener("mousemove", myFunction);
 
   document.getElementById("profileImage").src="rickastleymulti.gif";
@@ -417,7 +423,9 @@ function rickRoll() {
   document.getElementById("closePersonalContact").style.display = 'none';
   document.getElementById("profileName").innerHTML = "Rick Astley, 55";
   console.log('rick astley switch');
-
+  sleep(200750).then(() => {
+      window.location.href = "https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/prevention.html";
+    })
 })
 }
 const msgerForm = get(".msger-inputarea");
@@ -425,10 +433,13 @@ const msgerInput = get(".msger-input");
 const msgerChat = get(".msger-chat");
 
 const BOT_MSGS = [
-  "lLets tryto make thiws one simple. wearr a mask",
-  "wear a mask and ttry to make i5t a lesson about yoursel ves like how yourrr selfishor something",
-  "and umh, ,oh yea. your phone is about   to get LOUDSo turn down the headphnoes",
-  "and also hawaii"
+  "Thanks for swiping my mask up!",
+  "Yes, Maskd is my April Fools joke. But, COVID-19 is not a joke.",
+  "Please take COVID-19 seriously. Wear a mask and get the vaccine when it becomes available.",
+  "Keep in mind that 'early data show that the vaccines may help keep people from spreading COVID-19, but we are learning more as more people get vaccinated.' https://www.cdc.gov/coronavirus/2019-ncov/vaccines/fully-vaccinated.html",
+  "Please take steps to protect yourself and others. At least read this if you haven't yet: https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/prevention.html",
+  "Okay, we've covered the important items. It's now time for a good old-fashioned April Fools prank :D. You're about to hear something and I don't want to startle you. Please place your phone on a flat surface before continuing. I don't want to risk having you drop your phone. Let me know when you're ready.",
+  "Alrighty, I'm starting the audio now :P"
   /*
 ALOhA!
 means hello and goodbye in hawaii
@@ -448,9 +459,9 @@ and also hawaii
 ];
 
 // Icons made by Freepik from www.flaticon.com
-const BOT_IMG = "./drunk-hawaii-rick-send.png";
+const BOT_IMG = "./Untitled4.png";
 const PERSON_IMG = "";
-const BOT_NAME = "Rick";
+const BOT_NAME = "Dave";
 const PERSON_NAME = "";
 
 msgerForm.addEventListener("submit", event => {
@@ -496,12 +507,12 @@ function botResponse() {
   setTimeout(() => {
     appendMessage(BOT_NAME, BOT_IMG, "left", msgText);
   }, delay);
-  if (rickResponseNum == 3) {
+  if (rickResponseNum == 6) {
     console.log('running rick roll');
     rickRoll();
   }
   rickResponseNum = rickResponseNum + 1;
-  if (rickResponseNum == 8) {
+  if (rickResponseNum == 7) {
     rickResponseNum = 0;
   }
 }
@@ -577,13 +588,14 @@ function swipeDown() {
   setTimeout( function(){ document.getElementById("is-approved").style.display = 'none'; }, 1000);
   setTimeout(function() { showNextProfile() }, 1000);
 };
+
 var superSpreadCounter = 0;
 function superSpread() {
-  /*
-  #superSpreaderText
-  .superSpreaderBackground
-  .load
-  */
+  //
+  //#superSpreaderText
+  //.superSpreaderBackground
+  //.load
+
   console.log("superSpread() called with superSPreadCounter: " + superSpreadCounter);
   if (superSpreadCounter < 2) {
   document.getElementById("is-superspread").style.display = 'inline-block';
@@ -613,32 +625,35 @@ function superSpread() {
   setTimeout(function() { document.getElementById("profileImage").style.opacity = 1; }, 10000);
   setTimeout(function() { document.getElementById("maskImage").style.display = 'inline-block'; }, 10000);
   setTimeout(function() { showNextProfile() }, 10000);
-  superSpreadCounter = superSpreadCounter + 1;
+//  superSpreadCounter = superSpreadCounter + 1;
   }
   else {
     setTimeout(function() { meetingRick(); }, 10000);
 
   }
 }
-var meetingRickCounter = 0;
+
+
+// var meetingRickCounter = 0;
 function meetingRick() {
-  if (meetingRickCounter == 0) {
-  console.log("MEETING RICK!");
+  //if (meetingRickCounter == 0) {
+  //console.log("MEETING RICK!");
   // setTimeout(function() { THINGGOESHERE = 'inline-block'}, 3000);
-  document.getElementById("profileImage").src="drunk-hawaii-rick-send.png";
-  document.getElementById("profileImage").style.height = "370px";
-  document.getElementById("profileImage").style.width = "auto";
-  document.getElementById("profileName").innerHTML = "Rick Sanchez, 70";
-  meetingRickCounter = meetingRickCounter + 1;
-  } else {
+  document.getElementById("profileImage").src="./Untitled4.png";
+  // document.getElementById("profileImage").style.height = "370px";
+  // document.getElementById("profileImage").style.width = "auto";
+  // document.getElementById("profileName").innerHTML = "Rick Sanchez, 70";
+  //meetingRickCounter = meetingRickCounter + 1;
+  //} else {
     document.getElementById("maskImage").style.display = 'none';
     document.getElementsByClassName("tphoto")[0].style.display = 'none';
     document.getElementsByClassName("tinfo")[0].style.display = 'none';
     document.getElementsByClassName("tcontrols")[0].style.display = 'none';
     document.getElementsByClassName("match")[0].style.display = 'inline-block';
 
-  }
+  //}
 }
+
 function messagingRick() {
   document.getElementById("planeTrips").innerHTML = '1';
   document.getElementById("closePersonalContact").innerHTML = '9';
@@ -649,8 +664,16 @@ function messagingRick() {
   document.getElementsByClassName("match")[0].style.display = 'none';
   document.getElementsByClassName("msger")[0].style.display = 'inline-block';
 }
+var showNextProfileCounter = 1;
 function showNextProfile() {
   document.getElementById("maskImage").style.display = 'inline';
+  if (showNextProfileCounter %10 === 0) {
+    console.log("divisible by 10");
+    document.getElementById("profileName").innerHTML = "Dave";
+    currentProfilePic.src = "./Untitled4.png";
+    document.getElementById("closePersonalContact").innerHTML = 12;
+    document.getElementById("planeTrips").innerHTML = 1;
+  } else {
   chooseLRFProfilePic();
   setBackgroundColor();
   setNumFlightsTraveled();
@@ -660,6 +683,8 @@ function showNextProfile() {
   getNameAndAge();
   // name
   // age
+  }
+  showNextProfileCounter = showNextProfileCounter + 1;
 }
 
 var namePlusAge = "textstringhere";
@@ -710,6 +735,7 @@ var numClosePersonal = null;
 function numClosePersonalContact(){
   numClosePersonal = 10 + numFlightsTraveled * 4 + Math.floor(Math.random() * 63);
   document.getElementById("closePersonalContact").innerHTML = numClosePersonal;
+
 }
 // get age
 
@@ -885,39 +911,45 @@ var coughButtonVar = document.getElementById("cough");
 coverButtonVar.addEventListener("click", function(){
   document.getElementById("lastButtonOutput").innerHTML = "COVER";
   document.getElementById("maskImage").style.display = 'none';
-  if (superSpreadCounter < 2) {
-  swipeUp();
-} else if (superSpreadCounter == 2) {
-  meetingRick();
-}
-  else {
+  if (document.getElementById("profileName").innerHTML == "Dave") {
+    console.log("that works!");
+    meetingRick();
+  } else {
+    swipeUp();
+  }
+//  if (superSpreadCounter < 2) {
 
-  console.log("stop clicking");
-}
+//} else if (superSpreadCounter == 2) {
+//  meetingRick();
+//}
+//  else {
+
+//  console.log("stop clicking");
 });
+//});
 spreadButtonVar.addEventListener("click", function(){
   document.getElementById("lastButtonOutput").innerHTML = "SPREAD";
   // SUPER SPREADER!!!
   // showNextProfile();
   // showNextProfile();
-  if (superSpreadCounter < 2) {
+  // if (superSpreadCounter < 2) {
   superSpread();
-} else if (superSpreadCounter == 2) {
-  console.log("you're not allowed to choose this");
-} else {
-  console.log("stop clicking");
-}
+//} else if (superSpreadCounter == 2) {
+///  console.log("you're not allowed to choose this");
+//} else {
+  //console.log("stop clicking");
+//}
 });
 coughButtonVar.addEventListener("click", function(){
   document.getElementById("lastButtonOutput").innerHTML = "COUGH";
   document.getElementById("maskImage").style.display = 'none';
-  if (superSpreadCounter < 2) {
+//  if (superSpreadCounter < 2) {
   swipeDown();
-} else if (superSpreadCounter == 2) {
-  console.log("you're not allowed to choose this");
-} else {
-  console.log("stop clicking");
-}
+//} else if (superSpreadCounter == 2) {
+//  console.log("you're not allowed to choose this");
+//} else {
+//  console.log("stop clicking");
+//}
 });
 // touch
 /* a touch counts as a click event! I jusut realized that
