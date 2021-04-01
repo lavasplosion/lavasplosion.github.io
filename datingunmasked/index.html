@@ -324,9 +324,9 @@
       </div>
       <!-- test adding heartbeat ABOVE -->
       <!-- test of nope, superspread, yes -->
-      <div class="stamp is-approved" id="is-nope">MASKED</div>
+      <div class="stamp is-approved" id="is-nope">MASK</div>
       <div class="is-superspread" id="is-superspread">SUPER <br> SPREAD</div>
-      <div class="stamp is-nope" id="is-approved">INFECT</div>
+      <div class="stamp is-nope" id="is-approved">MEET</div>
       <!--                               -->
       <img id="profileImage" src="./generated-photos-new/front/image (0).png" title="tphoto" alt="Tinder Photo" />
       <!-- <img id="maskImage" src="./mask.png" />
@@ -344,6 +344,7 @@
       <i class="fas fa-plane"></i>
       <i class="fas fa-people-arrows"></i>
       -->
+
       <div class="tinfo">
         <i class="fas fa-plane" aria-hidden="true" id="planeTrips">2</i>
         <i class="fas fa-people-arrows" aria-hidden="true" id="closePersonalContact">34</i>
@@ -407,6 +408,8 @@ function rickRoll() {
   document.getElementById("profileImage").style.height = '350px';
   document.getElementById("profileImage").style.width = 'auto';
   document.getElementById("maskImage").style.display = 'none';
+  document.getElementById("planeTrips").style.display = 'none';
+  document.getElementById("closePersonalContact").style.display = 'none';
   document.getElementById("profileName").innerHTML = "Rick Astley, 55";
   console.log('rick astley switch');
 
@@ -418,13 +421,12 @@ const msgerChat = get(".msger-chat");
 
 const BOT_MSGS = [
   "means hello and goodbye in hawaii but , uh aloha has snothing todo with this ap",
-  "im so fuckin drunk",
+  "im so drunk",
   "okay, here's the deal iI'm gonna rest my eyes for a bit .I'm not goin to sleep",
   "i just jussttt need to rest my eyes so let's try to make this one simple. wear a mask",
   "wear a mask and try to make i5t a lesson about yourselves like how your selfish or something",
   "and umh, oh yea. your phone is about to get loudSo turn down the volume headphoes",
   "i just jump scares are lame. you gotta be ready for ,m I'm gonna play Nickelback",
-  "oh fuck, I just shit myself. i gotta go",
   "and also hawaii"
   /*
 ALOhA!
@@ -584,7 +586,7 @@ function superSpread() {
   console.log("superSpread() called with superSPreadCounter: " + superSpreadCounter);
   if (superSpreadCounter < 2) {
   document.getElementById("is-superspread").style.display = 'inline-block';
-  document.getElementById("maskImage").style.opacity = 0;
+  document.getElementById("maskImage").style.display = 'none';
 
   setTimeout(function() { document.getElementById("superSpreaderText").style.display = 'inline-block'}, 3000);
   setTimeout(function() { document.getElementById("profileImage").style.opacity = 0 }, 3000);
@@ -593,18 +595,28 @@ function superSpread() {
 
   setTimeout(function() { document.getElementsByClassName("superSpreaderBackground")[0].style.display = 'inline-block' }, 3000);
   setTimeout(function() { document.getElementsByClassName("load")[0].style.display = 'inline-block' }, 3000);
+  // make name, age, personal contacts and travel display none for 3 seconds
+  // planeTrips, closePersonalContact, profileName
+  setTimeout(function() { document.getElementById("planeTrips").style.display = 'none' }, 3000);
+  setTimeout(function() { document.getElementById("closePersonalContact").style.display = 'none' }, 3000);
+  setTimeout(function() { document.getElementById("profileName").style.display = 'none' }, 3000);
+  // bring  (name, age, personal contacts and travel) back at 10 seconds
+  setTimeout(function() { document.getElementById("planeTrips").style.display = 'inline-block' }, 10000);
+  setTimeout(function() { document.getElementById("closePersonalContact").style.display = 'inline-block' }, 10000);
+  setTimeout(function() { document.getElementById("profileName").style.display = 'inline-block' }, 10000);
 
   setTimeout(function() { document.getElementById("superSpreaderText").style.display = 'none' }, 10000);
   setTimeout(function() { document.getElementsByClassName("superSpreaderBackground")[0].style.display = 'none' }, 10000);
   setTimeout(function() { document.getElementsByClassName("load")[0].style.display = 'none' }, 10000);
 
   setTimeout(function() { document.getElementById("profileImage").style.opacity = 1; }, 10000);
-  setTimeout(function() { document.getElementById("maskImage").style.opacity = 1; }, 10000);
+  setTimeout(function() { document.getElementById("maskImage").style.display = 'inline-block'; }, 10000);
   setTimeout(function() { showNextProfile() }, 10000);
   superSpreadCounter = superSpreadCounter + 1;
   }
   else {
-    meetingRick()
+    setTimeout(function() { meetingRick(); }, 10000);
+
   }
 }
 var meetingRickCounter = 0;
@@ -627,6 +639,8 @@ function meetingRick() {
   }
 }
 function messagingRick() {
+  document.getElementById("planeTrips").innerHTML = '1';
+  document.getElementById("closePersonalContact").innerHTML = '9';
   document.getElementById("maskImage").style.display = 'none';
   document.getElementsByClassName("tphoto")[0].style.display = 'none';
   document.getElementsByClassName("tinfo")[0].style.display = 'none';
@@ -873,7 +887,7 @@ coverButtonVar.addEventListener("click", function(){
   if (superSpreadCounter < 2) {
   swipeUp();
 } else {
-    meetingRick();
+  setTimeout(function() { meetingRick(); }, 10000);
 }
 });
 spreadButtonVar.addEventListener("click", function(){
@@ -884,7 +898,7 @@ spreadButtonVar.addEventListener("click", function(){
   if (superSpreadCounter < 2) {
   superSpread();
 } else {
-  meetingRick();
+  setTimeout(function() { meetingRick(); }, 10000);
 }
 });
 coughButtonVar.addEventListener("click", function(){
@@ -893,10 +907,12 @@ coughButtonVar.addEventListener("click", function(){
   if (superSpreadCounter < 2) {
   swipeDown();
 } else {
-  meetingRick();
+  setTimeout(function() { meetingRick(); }, 10000);
 }
 });
 // touch
+/* a touch counts as a click event! I jusut realized that
+// these aren't required and were actually making the buttons count twice on mobile, lol
 coverButtonVar.addEventListener("touchstart", function(){
   document.getElementById("lastButtonOutput").innerHTML = "COVER";
   document.getElementById("maskImage").style.display = 'none';
@@ -925,6 +941,7 @@ coughButtonVar.addEventListener("touchstart", function(){
   meetingRick();
 }
 });
+*/
 </script>
 <script type="module" src="index.js"></script>
 <!--
